@@ -6,31 +6,33 @@ Ce projet est organisé par ce document (le cahier des charges) et le cahier de 
 
 ## Modules et organisation
 ### Liste des différents modules - proposition de Victor (modifier au besoin)
+Les modules sont associés à des lettres pour l'organisation.
 
-- Accueil du site (html)
-- Style, icône, assets (css et design d'images)
-- Création des onglets des différentes variantes (html)
-- Design des pubs et easter eggs
-- Implémentation des pubs easter eggs (html)
-- Création de la grille (html)
-- Sélection d'une colonne dans la grille à l'aide de la souris (javascript et html)
-- Placement d'un jeton en bas au clic (javascript)
-- Tour par tour (javascript)
-- Détection de la victoire
-- Fonctions secondaire du jeu
-- Variante 1 : confusion
-- Variante 2 : maxi fun
-- Variante 3 : mini mais fun quand même
-- Variante 4 : 3 joueurs
+- (A) Accueil du site (html)
+- (B) Style, icône, assets (css et design d'images)
+- (C) Création des onglets des différentes variantes et implémentation des styles (html)
+- (D) Design des pubs et easter eggs
+- (E) Implémentation des pubs et easter eggs (html)
+- (F) Création de la grille (html)
+- (G) Sélection d'une colonne dans la grille à l'aide de la souris (javascript et html)
+- (H) Placement d'un jeton en bas au clic (javascript)
+- (I) Tour par tour (javascript)
+- (J) Détection de la victoire
+- (K) Fonctions secondaire du jeu
+- (L) Variante 1 : confusion
+- (M) Variante 2 : maxi fun
+- (N) Variante 3 : mini mais fun quand même
+- (O) Variante 4 : 3 joueurs
 
 ### Organisation et ordre des modules
-à faire
+
 
 ## Toutes les tâches
 ### Fait
 ### À faire
 
-ici, séparer les trucs à faire pour chaque module
+A) - Créer le fichier html
+   - 
 
 ## Historique des modifications
 
