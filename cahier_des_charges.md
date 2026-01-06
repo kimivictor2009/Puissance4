@@ -30,9 +30,21 @@ Les modules sont associés à des lettres pour l'organisation.
 ## Toutes les tâches
 ### Fait
 ### À faire
-
-A) - Créer le fichier html
-   - 
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
 
 ## Historique des modifications
 
