@@ -18,7 +18,7 @@ Les modules sont associés à des lettres pour l'organisation.
 - (H) Placement d'un jeton en bas au clic (javascript)
 - (I) Tour par tour (javascript)
 - (J) Détection de la victoire
-- (K) Fonctions secondaire du jeu
+- (K) Finalisation du jeu
 - (L) Variante 1 : confusion
 - (M) Variante 2 : maxi fun
 - (N) Variante 3 : mini mais fun quand même
