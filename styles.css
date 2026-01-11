@@ -1,0 +1,25 @@
+.heading
+{
+    background-color: #aac7fe;
+    padding-right: 100%;
+    padding-bottom: 50px;
+    outline: 10px solid #aac7fe;
+    border: 1px solid
+}
+
+.logo
+{
+    align-content: middle;
+}
+
+body
+{
+    color: #303030;
+    background-color: #f8f2e4;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+h1
+{
+    font-family: magneto;
+}
