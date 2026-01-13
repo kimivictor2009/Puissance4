@@ -26,6 +26,7 @@
 {
     display: flex;
     margin-top: 18px;
+	width: 100%
 }
 .panel-btn
 {
@@ -47,3 +48,4 @@ h1
 {
     font-family: 'Magneto', Arial, sans-serif ;
 }
+
