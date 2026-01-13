@@ -17,3 +17,27 @@ function allerclassique()
 	let classique = '<br>'
 	main.innerHTML = classique;
 }
+
+// WIP
+// 0 pour rien, 1 pour les rouges et 2 pour les jaunes
+// variante 2 : 3 = couleur neutre
+let position = [[0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0], 
+				[0, 0, 0, 0, 0, 0]];
+
+function detecter_victoire(position, variante) {
+	let gagnant = 0;
+	if (variante == 3) {
+		let nb_aligne = 3;
+	} else {
+		let nb_aligne = 4;
+	}
+	return(gagnant);
+}
+
+let gagnant = detecter_victoire(position);
+console.log(gagnant);
