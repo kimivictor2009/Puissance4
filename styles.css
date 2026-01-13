@@ -15,9 +15,15 @@
 .panel
 {
     width: 200px;
-    margin-left: 0px;
-    margin-right: 90%;
-    border: 0px solid;
+    border: 1px solid;
+    background-color: #aac7fe;
+    margin-right: 30px;
+}
+
+.main
+{
+    display: flex;
+    margin-top: 50px;
 }
 
 body
