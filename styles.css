@@ -49,3 +49,16 @@ h1
     font-family: 'Magneto', Arial, sans-serif ;
 }
 
+.grille {
+    display: grid;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px;
+    grid-template-columns: 50px 50px 50px 50px 50px 50px 50px;
+	grid-gap: 5px;
+
+}
+
+.elements {
+	background: white;
+	text-align: center;
+	border: black 2px solid
+}
