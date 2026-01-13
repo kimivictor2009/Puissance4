@@ -14,30 +14,6 @@ classique.addEventListener('click', allerclassique);
 function allerclassique()
 {
 	let main = document.getElementById("page");
-	let classique = '<br>'
+	let classique = '<div class="grille"><br><div>1</div><br><div>2</div><br><div>3</div><br><div>4</div><br><div>5</div><br></div>'
 	main.innerHTML = classique;
 }
-
-// WIP
-// 0 pour rien, 1 pour les rouges et 2 pour les jaunes
-// variante 2 : 3 = couleur neutre
-let position = [[0, 0, 0, 0, 0, 0], 
-				[0, 0, 0, 0, 0, 0], 
-				[0, 0, 0, 0, 0, 0], 
-				[0, 0, 0, 0, 0, 0], 
-				[0, 0, 0, 0, 0, 0], 
-				[0, 0, 0, 0, 0, 0], 
-				[0, 0, 0, 0, 0, 0]];
-
-function detecter_victoire(position, variante) {
-	let gagnant = 0;
-	if (variante == 3) {
-		let nb_aligne = 3;
-	} else {
-		let nb_aligne = 4;
-	}
-	return(gagnant);
-}
-
-let gagnant = detecter_victoire(position);
-console.log(gagnant);
