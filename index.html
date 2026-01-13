@@ -1,15 +1,16 @@
 <!DOCTYPE HTML>
 <head>
     <link rel="stylesheet" href="styles.css">
+	<script src="script.js" defer></script>
     <title>Puissance 4</title>
 </head>
 <body>
     <div class="heading">
         <div class="logo">
-            <img src="icone.png" height="100px">
+            <input type="image" id = "logo" src="icone.png" height="100px">
         </div>
     </div>
-    <div class="main">
+    <div class="main" id ="main">
         <div class="panel">
 			<input type="button" id = "classique" value="Classique" class="panel-btn">
 			<input type="button" id = "variante1" value="Variante 1" class="panel-btn">
@@ -17,13 +18,13 @@
 			<input type="button" id = "variante3" value="Variante 3" class="panel-btn">
 			<input type="button" id = "variante4" value="Variante 4" class="panel-btn">
         </div>
-        <div class="text_accueil">
+        <div class="page" id = "page" >
             <h1>Puissance 4</h1>
             <h2>Règles du jeu</h2>
-            <p>Le puissance 4 est un jeu de stratégie impliquant 2 joueurs l'un contre l'autre.
-            Cela se joue dans une grille de 7 colonnes de 6 cases et à l'aide de jetons de couleurs différentes.
+            <p>Le puissance 4 est un jeu de stratégie impliquant 2 joueurs l’un contre l’autre.<br>
+            Cela se joue dans une grille de 7 colonnes de 6 cases et à l’aide de jetons de couleurs différentes.<br>
             Chacun leur tour, les joueurs doivent déposer un jeton de leur couleur dans une colonne, et celui-ci
-            se dépose en bas de la grille. Le premier joueur à aligner 4 jetons, verticalement, horizontalement ou en diagonale,
+            se dépose en bas de la grille.<br> Le premier joueur à aligner 4 jetons, verticalement, horizontalement ou en diagonale,
             remporte la partie.
             </p>
         </div>
