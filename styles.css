@@ -57,8 +57,8 @@ h1
 
 }
 
-.elements {
-	background: white;
-	text-align: center;
-	border: black 2px solid
+.grille > div{
+	padding: 20px 0px;
+	background-color: blue;
+	border: 1px black;
 }
