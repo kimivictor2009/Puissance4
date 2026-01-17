@@ -14,6 +14,6 @@ classique.addEventListener('click', allerclassique);
 function allerclassique()
 {
 	let main = document.getElementById("page");
-	let classique = '<div class="grille"><br><div>1</div><br><div>2</div><br><div>3</div><br><div>4</div><br><div>5</div><br></div>'
+	let classique = "<br>"
 	main.innerHTML = classique;
 }
