@@ -28,6 +28,7 @@
     margin-top: 18px;
 	width: 100%
 }
+
 .panel-btn
 {
 	background-color: #B7AAFE;
@@ -37,6 +38,7 @@
 	border-radius: 20px;
 	border-color: #aac7fe;
 }
+
 body
 {
     color: #303030;
@@ -55,18 +57,21 @@ table
 	width: 700px;
 	
 }
+
 td
 {
 	border-radius:100%;
 	border : 2px solid blue;
 }
+
 caption
 {
 	caption-side: bottom;
 }
+
 tbody
 {
 	height: 600px;
 	
 }
-.r1:hover {background-color: coral;}
+
