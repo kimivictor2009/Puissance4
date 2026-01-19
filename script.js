@@ -38,7 +38,7 @@ function createGrid()
 	for (let i=0; i<6; i++)
 	{
 		grille_html += `<tr class="l` + i.toString() + `">`;
-		for (let j=0; j<7; i++)
+		for (let j=0; j<7; j++)
 		{
 			grille_html += `<td class="r` + j.toString() + `"></td>`;
 		}
