@@ -26,22 +26,18 @@ function allerclassique()
 				<caption>
 					Puissance 4 classique
 				</caption>
-				<colgroup>
-					<col />
-    				<col span="2" class="batman" />
-    				<col span="2" class="flash" />
-  				</colgroup>
-				<div class="grille">`
-				+ createGrid() +
-				`</div>
-			</table>
-			</div>`;
+				<div class="grille">`;
+	classique += createGrid();
+	classique += `</div>
+		</table>
+		</div>`;
 	main.innerHTML = classique;
 }
 
 function createGrid()
 {
 	let grille_html="";
+	grille_html += "<colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>";
 	for (let i=0; i<6; i++)
 	{
 		grille_html += `<tr class="l` + i.toString() + `">`;
