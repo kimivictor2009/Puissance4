@@ -55,7 +55,7 @@ h1
 table
 {
 	width: 700px;
-	
+	background-color: blue;
 }
 
 td
@@ -63,6 +63,7 @@ td
 	border-radius:100%;
 	border : 2px solid blue;
     outline: 100%;
+	background-color:white;
 }
 
 caption
@@ -78,4 +79,8 @@ tbody
 .grille
 {
     background-color: blue;
+}
+td:hover
+{
+	background-color: green;
 }
