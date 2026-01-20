@@ -25,9 +25,11 @@ function allerclassique()
 			<table>
 				<caption>
 					Puissance 4 classique
-				</caption>`;
+				</caption>
+				<div class="grille">`;
 	classique += createGrid();
-	classique += `</table>
+	classique += `</div>
+		</table>
 		</div>`;
 	main.innerHTML = classique;
 }
