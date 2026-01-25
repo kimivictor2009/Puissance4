@@ -80,7 +80,13 @@ tbody
 {
     background-color: blue;
 }
+
 td:hover
 {
 	background-color: green;
+}
+
+.c1
+{
+    color : red ;
 }

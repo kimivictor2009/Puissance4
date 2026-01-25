@@ -37,7 +37,7 @@ function allerclassique()
 function createGrid()
 {
 	let grille_html="";
-	grille_html += "<colgroup><col /><col /><col /><col /><col /><col /><col /></colgroup>";
+	grille_html += '<colgroup><col class="c1"/><col class="c2"/><col class="c3"/><col class="c4"/><col class="c5"/><col class="c6"/><col class="c7"/></colgroup>';
 	for (let i=0; i<6; i++)
 	{
 		grille_html += `<tr class="l` + i.toString() + `">`;
@@ -48,4 +48,14 @@ function createGrid()
 		grille_html += '</tr>';
 	}
 	return grille_html;
+}
+
+let colonne1 = document.querySelector(".c1");
+colonne1.addEventListener('click', colGris());
+
+function colGris()
+{
+	let colonne1 = document.querySelector(".c1");
+	colonne1.style.backgroundColor = "red";
+	console.log(colonne1);
 }
