@@ -52,41 +52,51 @@ h1
 }
 
 
-table
-{
-	width: 700px;
-	background-color: blue;
-}
-
-td
-{
-	border-radius:100%;
-	border : 2px solid blue;
-    outline: 100%;
-	background-color:white;
-}
-
 caption
 {
 	caption-side: bottom;
 }
 
-tbody
+
+td
 {
-	height: 600px;
+	border-radius:100%;
+    outline: 100%;	
+	background-color:white;
 }
 
 .grille
 {
-    background-color: blue;
+	display:flex;
 }
 
-td:hover
+.plcjetons
 {
-	background-color: green;
+	
 }
 
-.c1
+table
 {
-    color : red ;
+	width: 70px;
+	height: 420px;
+}
+
+.colonne
+{
+	background-color:blue;
+}
+
+.colonne:hover
+{
+	background-color:#8A90FF;
+}
+
+td.jaune
+{
+	background-color:yellow;
+}
+
+td.rouge
+{
+	background-color:red;
 }
