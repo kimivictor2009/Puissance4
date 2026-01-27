@@ -103,4 +103,17 @@ function supprimerGrille()
 	jeu.innerHTML ="";
 }
 
+tour = "jaune";
+
+function tourpartour()
+{
+	if (tour == "jaune")
+	{
+	tour="rouge";
+	}
+	else if (tour=="rouge")
+	{
+	tour="jaune";
+	}
+}
 
