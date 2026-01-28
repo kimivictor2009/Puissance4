@@ -58,22 +58,33 @@ caption
 }
 
 
-td
+.colonne tbody tr td
 {
 	border-radius:100%;
     outline: 100%;	
 	background-color:white;
 }
 
+.plcjetons tr td
+{
+	border-radius:100%;
+    outline: 100%;	
+	background-color: none;
+}
+
+
+.plcjetons
+{
+	height: 70px;
+	width: 490px;
+}
+
+
 .grille
 {
 	display:flex;
 }
 
-.plcjetons
-{
-	height: 100px;
-}
 
 table
 {

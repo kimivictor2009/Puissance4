@@ -1,6 +1,9 @@
 let logoimg = document.getElementById("logo");
 logoimg.addEventListener('click', alleraccueil);
 
+let classique = document.getElementById("classique");
+classique.addEventListener('click', allerclassique);
+
 let menu = "accueil";
 
 function alleraccueil()
@@ -17,54 +20,33 @@ function alleraccueil()
 	main.innerHTML = accueil;
 }
 
-let classique = document.getElementById("classique");
-classique.addEventListener('click', allerclassique);
 
 function allerclassique()
 {
+	let nbColonnes = 7
+	let nbLignes = 6
+	
 	let main = document.getElementById("page");
 	let classique = `<div>
 				<caption>
 					Puissance 4 classique
 				</caption>
-				<div class="plcjetons">
-				</div>
+				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
 				<div class="grille">`;
 	classique += creerGrille();
 	classique += `</div>
 		</div>`;
 	main.innerHTML = classique;
 	menu = "jeu"
+	
 	jeu()
 	
 }
 
-function createGrid()
+
+function getColonnes() // utiliser colonnes[#] pour accéder à n'importe laquelle
 {
-	let grille_html="";
-	grille_html += '<colgroup><col class="c1"/><col class="c2"/><col class="c3"/><col class="c4"/><col class="c5"/><col class="c6"/><col class="c7"/></colgroup>';
-	for (let i=0; i<6; i++)
-	{
-		grille_html += `<tr class="l` + i.toString() + `">`;
-		for (let j=0; j<7; j++)
-		{
-			grille_html += `<td class="r` + j.toString() + `"></td>`;
-		}
-		grille_html += '</tr>';
-	}
-	return grille_html;
-	
-
-}
-
-
-function colGris()
-{
-	console.log("truc");
-	let colonne1 = document.querySelector(".c1");
-	colonne1.style.backgroundColor = "grey";
-	colonne1.style.outline = "10px solid grey";
-	console.log(colonne1);
+	let colonnes = document.querySelectorAll(".colonnes");
 }
 
 
@@ -72,13 +54,7 @@ function jeu()
 {
 	if (menu=="jeu")
 	{
-		let colonneI = document.getElementById("colonneI");
-		let colonneII = document.getElementById("colonneII");
-		let colonneIII = document.getElementById("colonneIII");
-		let colonneIV = document.getElementById("colonneIV");
-		let colonneV = document.getElementById("colonneV");
-		let colonneVI = document.getElementById("colonneVI");
-		let colonneVII = document.getElementById("colonneVII");
+		getColonnes()
 	}
 }
 
@@ -86,13 +62,29 @@ function jeu()
 function creerGrille()
 {
 	let grille_html="";
-	grille_html+="<table class='colonne' id='colonneI'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
-	grille_html+="<table class='colonne' id='colonneII'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonneIII'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonneIV'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonneV'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonneVI'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonneVII'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	for (let i=0; i<nbColonnes; i++)
+	{
+		grille_html += "<table class='colonne' id='colonne" + i.toString() + "'>";
+		for (let j=0; j<nbLignes; j++)
+		{
+			grille_html += "<tr><td></tr>";
+		}
+		grille_html += '</table>';
+	}
+	return grille_html;
+}
+
+
+function creerGrilleAncien()
+{
+	let grille_html="";
+	grille_html+="<table class='colonne' id='colonne1'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
+	grille_html+="<table class='colonne' id='colonne2'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne3'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne4'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne5'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne6'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne7'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
 	return grille_html;
 }
 
@@ -103,17 +95,4 @@ function supprimerGrille()
 	jeu.innerHTML ="";
 }
 
-tour = "jaune";
-
-function tourpartour()
-{
-	if (tour == "jaune")
-	{
-	tour="rouge";
-	}
-	else if (tour=="rouge")
-	{
-	tour="jaune";
-	}
-}
 
