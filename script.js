@@ -33,21 +33,17 @@ function allerclassique()
 				</caption>
 				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
 				<div class="grille">`;
-	classique += creerGrille();
+	classique += creerGrille(nbColonnes, nbLignes);
 	classique += `</div>
 		</div>`;
 	main.innerHTML = classique;
-	menu = "jeu"
-	
-	jeu()
-	
-}
 
-
-function getColonnes() // utiliser colonnes[#] pour accéder à n'importe laquelle
-{
+	menu = "jeu";
 	let colonnes = document.querySelectorAll(".colonnes");
+	jeu();
+	
 }
+
 
 
 function jeu()
@@ -59,13 +55,13 @@ function jeu()
 }
 
 
-function creerGrille()
+function creerGrille(nbColonnes, nbLignes)
 {
 	let grille_html="";
-	for (let i=0; i<nbColonnes; i++)
+	for (let i=0; i < nbColonnes; i++)
 	{
 		grille_html += "<table class='colonne' id='colonne" + i.toString() + "'>";
-		for (let j=0; j<nbLignes; j++)
+		for (let j=0; j < nbLignes; j++)
 		{
 			grille_html += "<tr><td></tr>";
 		}
