@@ -163,9 +163,11 @@ function jeu()
 function creerGrille(nbColonnes, nbLignes)
 {
 	let grille_html="";
+	let hauteur=70*nbLignes;
 	for (let i=0; i < nbColonnes; i++)
 	{
-		grille_html += "<table class='colonne' id='colonne" + i.toString() + "'>";
+		grille_html += "<table class='colonne' id='colonne" + i.toString() + "' style='height:"+hauteur.toString()+"px'>";
+		
 		for (let j=0; j < nbLignes; j++)
 		{
 			grille_html += "<tr><td></tr>";
@@ -195,5 +197,3 @@ function supprimerGrille()
 	let jeu = document.getElementById("jeu");
 	jeu.innerHTML ="";
 }
-
-
