@@ -1,13 +1,28 @@
 let logoimg = document.getElementById("logo");
-logoimg.addEventListener('click', alleraccueil);
+logoimg.addEventListener('click', allerAccueil);
 
-let classique = document.getElementById("classique");
-classique.addEventListener('click', allerclassique);
+allerAccueil()
 
-let menu = "accueil";
-
-function alleraccueil()
+function allerAccueil()
 {
+	let menu = "accueil";
+
+	let classique = document.getElementById("btnClass");
+	classique.addEventListener('click', allerClassique);
+
+	let var1 = document.getElementById("btnV1");
+	var1.addEventListener('click', allerVar1);
+
+	let var2 = document.getElementById("btnV2");
+	var2.addEventListener('click', allerVar2);
+
+	let var3 = document.getElementById("btnV3");
+	var3.addEventListener('click', allerVar3);
+
+	let var4 = document.getElementById("btnV4");
+	var4.addEventListener('click', allerVar4);
+
+
 	let main = document.getElementById("page");
 	let accueil = `<div class="text_accueil">
 	<h1>Puissance 4</h1>
@@ -21,25 +36,114 @@ function alleraccueil()
 }
 
 
-function allerclassique()
+function allerClassique()
 {
 	let nbColonnes = 7
 	let nbLignes = 6
 	
 	let main = document.getElementById("page");
-	let classique = `<div>
+	let ajout = `<div>
 				<caption>
 					Puissance 4 classique
 				</caption>
 				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
 				<div class="grille">`;
-	classique += creerGrille(nbColonnes, nbLignes);
-	classique += `</div>
+	ajout += creerGrille(nbColonnes, nbLignes);
+	ajout += `</div>
 		</div>`;
-	main.innerHTML = classique;
+	main.innerHTML = ajout;
 
 	menu = "jeu";
-	let colonnes = document.querySelectorAll(".colonnes");
+	jeu();
+	
+}
+
+
+function allerVar1()
+{
+	let nbColonnes = 7
+	let nbLignes = 6
+	
+	let main = document.getElementById("page");
+	let ajout = `<div>
+				<caption>
+					Puissance 4 : Confusion
+				</caption>
+				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<div class="grille">`;
+	ajout += creerGrille(nbColonnes, nbLignes);
+	ajout += `</div>
+		</div>`;
+	main.innerHTML = ajout;
+
+	menu = "jeu";
+	jeu();
+	
+}
+
+function allerVar2()
+{
+	let nbColonnes = 14
+	let nbLignes = 12
+	
+	let main = document.getElementById("page");
+	let ajout = `<div>
+				<caption>
+					Puissance 4 : Maxi fun
+				</caption>
+				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<div class="grille">`;
+	ajout += creerGrille(nbColonnes, nbLignes);
+	ajout += `</div>
+		</div>`;
+	main.innerHTML = ajout;
+
+	menu = "jeu";
+	jeu();
+	
+}
+
+
+function allerVar3()
+{
+	let nbColonnes = 4
+	let nbLignes = 3
+	
+	let main = document.getElementById("page");
+	let ajout = `<div>
+				<caption>
+					Puissance 4 : Mini mais fun quand même
+				</caption>
+				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<div class="grille">`;
+	ajout += creerGrille(nbColonnes, nbLignes);
+	ajout += `</div>
+		</div>`;
+	main.innerHTML = ajout;
+
+	menu = "jeu";
+	jeu();
+	
+}
+
+function allerVar4()
+{
+	let nbColonnes = 7
+	let nbLignes = 6
+	
+	let main = document.getElementById("page");
+	let ajout = `<div>
+				<caption>
+					Puissance 4 : 3 joueurs
+				</caption>
+				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<div class="grille">`;
+	ajout += creerGrille(nbColonnes, nbLignes);
+	ajout += `</div>
+		</div>`;
+	main.innerHTML = ajout;
+
+	menu = "jeu";
 	jeu();
 	
 }
@@ -50,9 +154,10 @@ function jeu()
 {
 	if (menu=="jeu")
 	{
-		getColonnes()
+		let colonnes = document.querySelectorAll(".colonnes");
 	}
 }
+
 
 
 function creerGrille(nbColonnes, nbLignes)
