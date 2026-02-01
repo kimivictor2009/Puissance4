@@ -214,3 +214,39 @@ function supprimerGrille()
 	let jeu = document.getElementById("jeu");
 	jeu.innerHTML ="";
 }
+
+function clickColonnes() {
+    let nbLignes = 6
+    let nbColonnes = 7
+    let plateau = []
+    for (let i = 0; i < nbLignes; i++) {
+        plateau[i] = []
+        for (let j = 0; j < nbColonnes; j++) {
+            plateau[i][j] = 0
+        }
+    }
+    let prochaineLigneVide = []
+    for (let col = 0; col < nbColonnes; col++) {
+        prochaineLigneVide[col] = 0
+    }
+    let joueurActuel = 1
+    let colonnes = document.querySelectorAll(".colonne")
+    for (let i = 0; i < colonnes.length; i++) {
+        let colonne = colonnes[i]
+        colonne.addEventListener('click', function() {
+            let numeroColonne = i
+            let ligne = prochaineLigneVide[numeroColonne]
+            if (ligne < nbLignes) {
+                prochaineLigneVide[numeroColonne] += 1
+                plateau[ligne][numeroColonne] = joueurActuel
+                let cellule = document.getElementById("colonne" + numeroColonne).rows[ligne].cells[0]
+                cellule.classList.add("jetonJoueur" + joueurActuel)
+                if (joueurActuel == 1) {
+					joueurActuel = 2
+				} else {
+					joueurActuel = 1
+				}
+            }
+        })
+    }
+}
