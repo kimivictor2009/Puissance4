@@ -3,6 +3,18 @@ logoimg.addEventListener('click', allerAccueil);
 
 allerAccueil()
 
+
+function repeatStr(str, nb) //regroupe la str entrée nb fois
+{
+	let output = str
+	for (let i=1; i<nb; i++)
+	{
+		output += str
+	}
+	return output
+}
+
+
 function allerAccueil()
 {
 	let menu = "accueil";
@@ -40,13 +52,14 @@ function allerClassique()
 {
 	let nbColonnes = 7
 	let nbLignes = 6
+	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
 				<caption>
 					Puissance 4 classique
 				</caption>
-				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -63,13 +76,14 @@ function allerVar1()
 {
 	let nbColonnes = 7
 	let nbLignes = 6
+	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
 				<caption>
 					Puissance 4 : Confusion
 				</caption>
-				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -85,13 +99,14 @@ function allerVar2()
 {
 	let nbColonnes = 14
 	let nbLignes = 12
+	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
 				<caption>
 					Puissance 4 : Maxi fun
 				</caption>
-				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -108,13 +123,14 @@ function allerVar3()
 {
 	let nbColonnes = 4
 	let nbLignes = 3
+	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
 				<caption>
 					Puissance 4 : Mini mais fun quand même
 				</caption>
-				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -130,13 +146,14 @@ function allerVar4()
 {
 	let nbColonnes = 7
 	let nbLignes = 6
+	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
 				<caption>
 					Puissance 4 : 3 joueurs
 				</caption>
-				<table class='plcjetons'><tr><td><td><td><td><td><td><td></tr></table>
+				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -163,10 +180,10 @@ function jeu()
 function creerGrille(nbColonnes, nbLignes)
 {
 	let grille_html="";
-	let hauteur=70*nbLignes;
+	let hauteur = 70 * nbLignes;
 	for (let i=0; i < nbColonnes; i++)
 	{
-		grille_html += "<table class='colonne' id='colonne" + i.toString() + "' style='height:"+hauteur.toString()+"px'>";
+		grille_html += "<table class='colonne' id='colonne" + i.toString() + "' style='height:" + hauteur.toString() + "px'>";
 		
 		for (let j=0; j < nbLignes; j++)
 		{
