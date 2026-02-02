@@ -169,8 +169,9 @@ function allerVar4()
 
 function jeu()
 {
-	if (menu=="jeu")
-	{
+	if (menu=="jeu") {
+		console.log("jeu lancé")
+		jetonclick()
 		let colonnes = document.querySelectorAll(".colonnes");
 	}
 }
@@ -215,7 +216,7 @@ function supprimerGrille()
 	jeu.innerHTML ="";
 }
 
-function clickColonnes() {
+function jetonclick() {
     let nbLignes = 6
     let nbColonnes = 7
     let plateau = []
@@ -231,20 +232,26 @@ function clickColonnes() {
     }
     let joueurActuel = 1
     let colonnes = document.querySelectorAll(".colonne")
+	console.log("colonnes trouvées :", colonnes.length)
     for (let i = 0; i < colonnes.length; i++) {
         let colonne = colonnes[i]
         colonne.addEventListener('click', function() {
+			console.log("colonne cliquée :", i)
             let numeroColonne = i
             let ligne = prochaineLigneVide[numeroColonne]
+			console.log("ligne choisie :", ligne)
             if (ligne < nbLignes) {
                 prochaineLigneVide[numeroColonne] += 1
                 plateau[ligne][numeroColonne] = joueurActuel
                 let cellule = document.getElementById("colonne" + numeroColonne).rows[ligne].cells[0]
+				console.log(cellule)
                 cellule.classList.add("jetonJoueur" + joueurActuel)
+				console.log("classe ajoutée :", cellule.className)
                 if (joueurActuel == 1) {
 					joueurActuel = 2
 				} else {
 					joueurActuel = 1
+				console.log("joueur suivant :", joueurActuel)
 				}
             }
         })
