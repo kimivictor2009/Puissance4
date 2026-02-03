@@ -85,7 +85,7 @@ function allerVar1() // par victor (copié-collé)
 				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
-	ajout += creerGrille(nbColonnes, nbLignes);
+	ajout += creerGrilleConfusion(nbColonnes, nbLignes);
 	ajout += `</div>
 		</div>`;
 	main.innerHTML = ajout;
@@ -194,6 +194,24 @@ function creerGrille(nbColonnes, nbLignes) //par victor (optimisation du code de
 	}
 	return grille_html;
 }
+
+function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi(reprise de la fonction de victor afin de l'adapter à la variante confusion)
+{
+	let grille_html="";
+	let hauteur = 70 * nbLignes;
+	for (let i=0; i < nbColonnes; i++)
+	{
+		grille_html += "<table class='colonne confusion' id='colonne" + i.toString() + "' style='height:" + hauteur.toString() + "px'>";
+		
+		for (let j=0; j < nbLignes; j++)
+		{
+			grille_html += "<tr><td></tr>";
+		}
+		grille_html += '</table>';
+	}
+	return grille_html;
+}
+
 
 
 function creerGrilleAncien() //par kimi
