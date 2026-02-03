@@ -4,7 +4,7 @@ logoimg.addEventListener('click', allerAccueil);
 allerAccueil()
 
 
-function repeatStr(str, nb) //regroupe la str entrée nb fois
+function repeatStr(str, nb) //regroupe la str entrée nb fois, par victor
 {
 	let output = str
 	for (let i=1; i<nb; i++)
@@ -15,7 +15,7 @@ function repeatStr(str, nb) //regroupe la str entrée nb fois
 }
 
 
-function allerAccueil()
+function allerAccueil() //par kimi (un peu victor)
 {
 	let menu = "accueil";
 
@@ -48,7 +48,7 @@ function allerAccueil()
 }
 
 
-function allerClassique()
+function allerClassique() // par victor
 {
 	let nbColonnes = 7
 	let nbLignes = 6
@@ -72,7 +72,7 @@ function allerClassique()
 }
 
 
-function allerVar1()
+function allerVar1() // par victor (copié-collé)
 {
 	let nbColonnes = 7
 	let nbLignes = 6
@@ -95,7 +95,7 @@ function allerVar1()
 	
 }
 
-function allerVar2()
+function allerVar2() // par victor (copié-collé)
 {
 	let nbColonnes = 12
 	let nbLignes = 10
@@ -119,7 +119,7 @@ function allerVar2()
 }
 
 
-function allerVar3()
+function allerVar3() // par victor (copié-collé)
 {
 	let nbColonnes = 5
 	let nbLignes = 4
@@ -142,7 +142,7 @@ function allerVar3()
 	
 }
 
-function allerVar4()
+function allerVar4() // par victor (copié-collé)
 {
 	let nbColonnes = 7
 	let nbLignes = 6
@@ -167,7 +167,7 @@ function allerVar4()
 
 
 
-function jeu(nbLignes, nbColonnes)
+function jeu(nbLignes, nbColonnes) //par victor
 {
 	if (menu=="jeu") {
 		console.log("jeu lancé");
@@ -178,7 +178,7 @@ function jeu(nbLignes, nbColonnes)
 
 
 
-function creerGrille(nbColonnes, nbLignes)
+function creerGrille(nbColonnes, nbLignes) //par victor (optimisation de kimi)
 {
 	let grille_html="";
 	let hauteur = 70 * nbLignes;
@@ -196,7 +196,7 @@ function creerGrille(nbColonnes, nbLignes)
 }
 
 
-function creerGrilleAncien()
+function creerGrilleAncien() //par kimi
 {
 	let grille_html="";
 	grille_html+="<table class='colonne' id='colonne1'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
@@ -210,13 +210,13 @@ function creerGrilleAncien()
 }
 
 
-function supprimerGrille()
+function supprimerGrille() // par kimi, pour des tests
 {
 	let jeu = document.getElementById("jeu");
 	jeu.innerHTML ="";
 }
 
-function jetonclick(nbLignes, nbColonnes) {
+function jetonclick(nbLignes, nbColonnes) { //par axel
     let plateau = [];
     for (let i = 0; i < nbLignes; i++) {
         plateau[i] = [];
@@ -249,7 +249,7 @@ function jetonclick(nbLignes, nbColonnes) {
 					joueurActuel = 2;
 				} else {
 					joueurActuel = 1;
-				console.log("joueur suivant :", joueurActuel);
+				console.log("victoire : ", detectVictCoup(plateau));
 				}
             }
         })
@@ -257,7 +257,7 @@ function jetonclick(nbLignes, nbColonnes) {
 }
 
 
-function detectVictCoup(position, posLast)
+function detectVictCoup(position, posLast) // par victor
 {
 	
 }
