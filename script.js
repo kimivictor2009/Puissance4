@@ -216,12 +216,12 @@ function supprimerGrille() // par kimi, pour des tests
 	jeu.innerHTML ="";
 }
 
-function jetonclick(nbLignes, nbColonnes) { //par axel
-    let plateau = [];
+function jetonclick(nbLignes, nbColonnes) {
+    let lagrille = [];
     for (let i = 0; i < nbLignes; i++) {
-        plateau[i] = [];
+        lagrille[i] = [];
         for (let j = 0; j < nbColonnes; j++) {
-            plateau[i][j] = 0;
+            lagrille[i][j] = 0;
         }
     }
     let prochaineLigneVide = [];
@@ -240,16 +240,18 @@ function jetonclick(nbLignes, nbColonnes) { //par axel
 			console.log("ligne choisie :", ligne);
             if (ligne < nbLignes) {
                 prochaineLigneVide[numeroColonne] += 1;
-                plateau[ligne][numeroColonne] = joueurActuel;
+                lagrille[ligne][numeroColonne] = joueurActuel;
                 let cellule = document.getElementById("colonne" + numeroColonne).rows[(nbLignes-1) - ligne];
 				console.log(cellule);
                 cellule.classList.add("jetonJoueur" + joueurActuel);
 				console.log("classe ajoutée :", cellule.className);
                 if (joueurActuel == 1) {
+					lagrille[ligne, numeroColonne] = [1]
 					joueurActuel = 2;
 				} else {
+					lagrille[ligne, numeroColonne] = [2]
 					joueurActuel = 1;
-				console.log("victoire : ", detectVictCoup(plateau));
+				console.log("joueur suivant :", joueurActuel);
 				}
             }
         })
@@ -260,4 +262,5 @@ function jetonclick(nbLignes, nbColonnes) { //par axel
 function detectVictCoup(position, posLast) // par victor
 {
 	
+
 }
