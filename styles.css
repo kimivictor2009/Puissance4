@@ -77,7 +77,6 @@ caption
 .grille
 {
 	display:flex;
-	border: 5px solid blue;
 }
 
 table
@@ -105,4 +104,3 @@ table
 {
 	background-color:red;
 }
-

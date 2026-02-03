@@ -15,7 +15,7 @@ function repeatStr(str, nb) //regroupe la str entrée nb fois, par victor
 }
 
 
-function allerAccueil() //par kimi (un peu victor)
+function allerAccueil() //par kimi
 {
 	let menu = "accueil";
 
@@ -178,7 +178,7 @@ function jeu(nbLignes, nbColonnes) //par victor
 
 
 
-function creerGrille(nbColonnes, nbLignes) //par victor (optimisation de kimi)
+function creerGrille(nbColonnes, nbLignes) //par victor (optimisation du code de kimi)
 {
 	let grille_html="";
 	let hauteur = 70 * nbLignes;
