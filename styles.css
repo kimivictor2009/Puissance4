@@ -51,27 +51,22 @@ h1
     font-family: 'Magneto', Arial, sans-serif ;
 }
 
-
 caption
 {
 	caption-side: bottom;
 }
 
-
 .colonne tbody tr td
 {
 	border-radius:100%;
-    outline: 100%;	
 	background-color:white;
 }
 
 .plcjetons tr td
 {
 	border-radius:100%;
-    outline: 100%;	
 	background-color: none;
 }
-
 
 .plcjetons
 {
@@ -79,12 +74,11 @@ caption
 	width: 490px;
 }
 
-
 .grille
 {
 	display:flex;
+	outline: 5px solid blue;
 }
-
 
 table
 {
@@ -102,12 +96,13 @@ table
 	background-color:#8A90FF;
 }
 
-td.jaune
+.colonne tbody tr.jetonJoueur1 td
 {
 	background-color:yellow;
 }
 
-td.rouge
+.colonne tbody tr.jetonJoueur2 td
 {
 	background-color:red;
 }
+

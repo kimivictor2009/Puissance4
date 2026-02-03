@@ -56,9 +56,9 @@ function allerClassique()
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 classique
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -67,7 +67,7 @@ function allerClassique()
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
+	jeu(nbLignes, nbColonnes);
 	
 }
 
@@ -80,9 +80,9 @@ function allerVar1()
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 : Confusion
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -91,21 +91,21 @@ function allerVar1()
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
+	jeu(nbLignes, nbColonnes);
 	
 }
 
 function allerVar2()
 {
-	let nbColonnes = 14
-	let nbLignes = 12
+	let nbColonnes = 12
+	let nbLignes = 10
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 : Maxi fun
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -114,22 +114,22 @@ function allerVar2()
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
+	jeu(nbLignes, nbColonnes);
 	
 }
 
 
 function allerVar3()
 {
-	let nbColonnes = 4
-	let nbLignes = 3
+	let nbColonnes = 5
+	let nbLignes = 4
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 : Mini mais fun quand même
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -138,7 +138,7 @@ function allerVar3()
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
+	jeu(nbLignes, nbColonnes);
 	
 }
 
@@ -150,9 +150,9 @@ function allerVar4()
 	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
-					Puissance 4 : 3 joueurs
-				</caption>
+				<h2>
+					Puissance 4 : 3 joueurs mais en fait y'a que 2 joueurs
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -161,17 +161,17 @@ function allerVar4()
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
+	jeu(nbLignes, nbColonnes);
 	
 }
 
 
 
-function jeu()
+function jeu(nbLignes, nbColonnes)
 {
 	if (menu=="jeu") {
-		console.log("jeu lancé")
-		jetonclick()
+		console.log("jeu lancé");
+		jetonclick(nbLignes, nbColonnes);
 		let colonnes = document.querySelectorAll(".colonnes");
 	}
 }
@@ -216,44 +216,48 @@ function supprimerGrille()
 	jeu.innerHTML ="";
 }
 
-function jetonclick() {
-    let nbLignes = 6
-    let nbColonnes = 7
-    let plateau = []
+function jetonclick(nbLignes, nbColonnes) {
+    let plateau = [];
     for (let i = 0; i < nbLignes; i++) {
-        plateau[i] = []
+        plateau[i] = [];
         for (let j = 0; j < nbColonnes; j++) {
-            plateau[i][j] = 0
+            plateau[i][j] = 0;
         }
     }
-    let prochaineLigneVide = []
+    let prochaineLigneVide = [];
     for (let col = 0; col < nbColonnes; col++) {
-        prochaineLigneVide[col] = 0
+        prochaineLigneVide[col] = 0;
     }
-    let joueurActuel = 1
-    let colonnes = document.querySelectorAll(".colonne")
-	console.log("colonnes trouvées :", colonnes.length)
+    let joueurActuel = 1;
+    let colonnes = document.querySelectorAll(".colonne");
+	console.log("colonnes trouvées :", colonnes.length);
     for (let i = 0; i < colonnes.length; i++) {
-        let colonne = colonnes[i]
+        let colonne = colonnes[i];
         colonne.addEventListener('click', function() {
-			console.log("colonne cliquée :", i)
-            let numeroColonne = i
-            let ligne = prochaineLigneVide[numeroColonne]
-			console.log("ligne choisie :", ligne)
+			console.log("colonne cliquée :", i);
+            let numeroColonne = i;
+            let ligne = prochaineLigneVide[numeroColonne];
+			console.log("ligne choisie :", ligne);
             if (ligne < nbLignes) {
-                prochaineLigneVide[numeroColonne] += 1
-                plateau[ligne][numeroColonne] = joueurActuel
-                let cellule = document.getElementById("colonne" + numeroColonne).rows[ligne].cells[0]
-				console.log(cellule)
-                cellule.classList.add("jetonJoueur" + joueurActuel)
-				console.log("classe ajoutée :", cellule.className)
+                prochaineLigneVide[numeroColonne] += 1;
+                plateau[ligne][numeroColonne] = joueurActuel;
+                let cellule = document.getElementById("colonne" + numeroColonne).rows[(nbLignes-1) - ligne];
+				console.log(cellule);
+                cellule.classList.add("jetonJoueur" + joueurActuel);
+				console.log("classe ajoutée :", cellule.className);
                 if (joueurActuel == 1) {
-					joueurActuel = 2
+					joueurActuel = 2;
 				} else {
-					joueurActuel = 1
-				console.log("joueur suivant :", joueurActuel)
+					joueurActuel = 1;
+				console.log("joueur suivant :", joueurActuel);
 				}
             }
         })
     }
+}
+
+
+function detectVictCoup(position, posLast)
+{
+	
 }
