@@ -85,7 +85,7 @@ function allerVar1() // par victor (copié-collé)
 				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
-	ajout += creerGrilleConfusion(nbColonnes, nbLignes);
+	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
 		</div>`;
 	main.innerHTML = ajout;
@@ -195,24 +195,6 @@ function creerGrille(nbColonnes, nbLignes) //par victor (optimisation du code de
 	return grille_html;
 }
 
-function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi(reprise de la fonction de victor afin de l'adapter à la variante confusion)
-{
-	let grille_html="";
-	let hauteur = 70 * nbLignes;
-	for (let i=0; i < nbColonnes; i++)
-	{
-		grille_html += "<table class='colonne confusion' id='colonne" + i.toString() + "' style='height:" + hauteur.toString() + "px'>";
-		
-		for (let j=0; j < nbLignes; j++)
-		{
-			grille_html += "<tr><td></tr>";
-		}
-		grille_html += '</table>';
-	}
-	return grille_html;
-}
-
-
 
 function creerGrilleAncien() //par kimi
 {
@@ -261,24 +243,54 @@ function jetonclick(nbLignes, nbColonnes) {
                 lagrille[ligne][numeroColonne] = joueurActuel;
                 let cellule = document.getElementById("colonne" + numeroColonne).rows[(nbLignes-1) - ligne];
 				console.log(cellule);
+				
+				//jouer :
                 cellule.classList.add("jetonJoueur" + joueurActuel);
 				console.log("classe ajoutée :", cellule.className);
-                if (joueurActuel == 1) {
-					lagrille[ligne, numeroColonne] = [1]
-					joueurActuel = 2;
-				} else {
-					lagrille[ligne, numeroColonne] = [2]
-					joueurActuel = 1;
+				
+				lagrille[ligne][numeroColonne] = joueurActuel;
+
+				joueurActuel = ((joueurActuel-2)*(-1))+1; //inverse le tour
 				console.log("joueur suivant :", joueurActuel);
-				}
+				
+				detectVict(lagrille);
+				console.log("grille :", lagrille);
             }
         })
     }
 }
 
 
-function detectVictCoup(position, posLast) // par victor
+function detectVict(position) // par victor
 {
+	let victoire1 = false;
+	let victoire2 = false;
 	
-
+	//check des lignes
+	let nbLignes = 6;
+	let nbColonnes = 7;
+	
+	for (let i=0; i<nbLignes; i++)
+	{
+		for (let j=0; j<nbColonnes-3; j++)
+		{
+			if (position[i][j] == 1)
+			{
+				if (position[i][j]==position[i+1][j]==position[i+2][j]==position[i+3][j])
+				{
+					victoire1 = true;
+					console.log("p1 wins");
+				}
+			}
+			else if (position[i][j] == 2)
+			{
+				if (position[i][j]==position[i+1][j]==position[i+2][j]==position[i+3][j])
+				{
+					victoire2 = true;
+					console.log("p2 wins");
+				}
+			}
+		}
+	}
+	return victoire1;
 }
