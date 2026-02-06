@@ -43,7 +43,7 @@ body
 {
     color: #303030;
     background-color: #f8f2e4;
-    font-family: 'Roboto', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Demi', 'Arial Narrow', Arial, sans-serif
 }
 
 h1
@@ -51,22 +51,41 @@ h1
     font-family: 'Magneto', Arial, sans-serif ;
 }
 
+
 caption
 {
 	caption-side: bottom;
 }
 
+
 .colonne tbody tr td
 {
 	border-radius:100%;
+    outline: 100%;	
 	background-color:white;
+}
+
+.colonne tbody tr.jetonJoueur1 td
+{
+	border-radius:100%;
+    outline: 100%;	
+	background-color:yellow;
+}
+
+.colonne tbody tr.jetonJoueur2 td
+{
+	border-radius:100%;
+    outline: 100%;	
+	background-color:red;
 }
 
 .plcjetons tr td
 {
 	border-radius:100%;
+    outline: 100%;	
 	background-color: none;
 }
+
 
 .plcjetons
 {
@@ -74,10 +93,12 @@ caption
 	width: 490px;
 }
 
+
 .grille
 {
 	display:flex;
 }
+
 
 table
 {
@@ -95,12 +116,12 @@ table
 	background-color:#8A90FF;
 }
 
-.colonne tbody tr.jetonJoueur1 td
+td.jaune
 {
 	background-color:yellow;
 }
 
-.colonne tbody tr.jetonJoueur2 td
+td.rouge
 {
 	background-color:red;
 }
