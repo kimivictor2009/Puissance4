@@ -67,15 +67,11 @@ caption
 
 .colonne tbody tr.jetonJoueur1 td
 {
-	border-radius:100%;
-    outline: 100%;	
 	background-color:yellow;
 }
 
 .colonne tbody tr.jetonJoueur2 td
-{
-	border-radius:100%;
-    outline: 100%;	
+{	
 	background-color:red;
 }
 
@@ -116,12 +112,12 @@ table
 	background-color:#8A90FF;
 }
 
-td.jaune
-{
-	background-color:yellow;
+.confusion tbody tr.jetonJoueur1 td
+{	
+	background-color:grey;
 }
 
-td.rouge
-{
-	background-color:red;
+.confusion tbody tr.jetonJoueur2 td
+{	
+	background-color:grey;
 }

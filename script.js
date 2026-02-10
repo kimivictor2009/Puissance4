@@ -4,17 +4,19 @@ logoimg.addEventListener('click', allerAccueil);
 allerAccueil()
 
 
-function repeatStr(str, nb) //regroupe la str entrée nb fois
+function repeatStr(str, nb) //regroupe la str entrée nb fois, par victor
 {
 	let output = str
-	for (let i = 1; i < nb; i++) {
+	for (let i=1; i<nb; i++)
+	{
 		output += str
 	}
 	return output
 }
 
 
-function allerAccueil() {
+function allerAccueil() //par kimi
+{
 	let menu = "accueil";
 
 	let classique = document.getElementById("btnClass");
@@ -46,16 +48,17 @@ function allerAccueil() {
 }
 
 
-function allerClassique() {
+function allerClassique() // par victor
+{
 	let nbColonnes = 7
 	let nbLignes = 6
 	let longueur = 70 * nbColonnes;
-
+	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 classique
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -64,43 +67,45 @@ function allerClassique() {
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
-
+	jeu(nbLignes, nbColonnes);
+	
 }
 
 
-function allerVar1() {
+function allerVar1() // par victor (copié-collé)
+{
 	let nbColonnes = 7
 	let nbLignes = 6
 	let longueur = 70 * nbColonnes;
-
+	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 : Confusion
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
-	ajout += creerGrille(nbColonnes, nbLignes);
+	ajout += creerGrilleConfusion(nbColonnes, nbLignes);
 	ajout += `</div>
 		</div>`;
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
-
+	jeu(nbLignes, nbColonnes);
+	
 }
 
-function allerVar2() {
-	let nbColonnes = 14
-	let nbLignes = 12
+function allerVar2() // par victor (copié-collé)
+{
+	let nbColonnes = 12
+	let nbLignes = 10
 	let longueur = 70 * nbColonnes;
-
+	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 : Maxi fun
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -109,21 +114,22 @@ function allerVar2() {
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
-
+	jeu(nbLignes, nbColonnes);
+	
 }
 
 
-function allerVar3() {
-	let nbColonnes = 4
-	let nbLignes = 3
+function allerVar3() // par victor (copié-collé)
+{
+	let nbColonnes = 5
+	let nbLignes = 4
 	let longueur = 70 * nbColonnes;
-
+	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
+				<h2>
 					Puissance 4 : Mini mais fun quand même
-				</caption>
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -132,20 +138,21 @@ function allerVar3() {
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
-
+	jeu(nbLignes, nbColonnes);
+	
 }
 
-function allerVar4() {
+function allerVar4() // par victor (copié-collé)
+{
 	let nbColonnes = 7
 	let nbLignes = 6
 	let longueur = 70 * nbColonnes;
-
+	
 	let main = document.getElementById("page");
 	let ajout = `<div>
-				<caption>
-					Puissance 4 : 3 joueurs
-				</caption>
+				<h2>
+					Puissance 4 : 3 joueurs mais en fait y'a que 2 joueurs
+				</h2>
 				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
@@ -154,29 +161,59 @@ function allerVar4() {
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu();
-
+	jeu(nbLignes, nbColonnes);
+	
 }
 
 
 
-function jeu() {
-	if (menu == "jeu") {
-		console.log("jeu lancé")
-		jetonclick()
+function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fin du jeu
+{
+	let main = document.getElementById("page");
+	if (menu=="jeu") {
+		console.log("jeu lancé");
+		jetonclick(nbLignes, nbColonnes);
 		let colonnes = document.querySelectorAll(".colonnes");
+	}
+	if (menu=="fin1")
+	{
+		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J1</h1>"
+	}
+	if (menu=="fin2")
+	{
+		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J2</h1>"
 	}
 }
 
 
 
-function creerGrille(nbColonnes, nbLignes) {
-	let grille_html = "";
+function creerGrille(nbColonnes, nbLignes) //par victor (optimisation du code de kimi)
+{
+	let grille_html="";
 	let hauteur = 70 * nbLignes;
-	for (let i = 0; i < nbColonnes; i++) {
+	for (let i=0; i < nbColonnes; i++)
+	{
 		grille_html += "<table class='colonne' id='colonne" + i.toString() + "' style='height:" + hauteur.toString() + "px'>";
+		
+		for (let j=0; j < nbLignes; j++)
+		{
+			grille_html += "<tr><td></tr>";
+		}
+		grille_html += '</table>';
+	}
+	return grille_html;
+}
 
-		for (let j = 0; j < nbLignes; j++) {
+function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi(reprise de la fonction de victor afin de l'adapter à la variante confusion)
+{
+	let grille_html="";
+	let hauteur = 70 * nbLignes;
+	for (let i=0; i < nbColonnes; i++)
+	{
+		grille_html += "<table class='colonne confusion' id='colonne" + i.toString() + "' style='height:" + hauteur.toString() + "px'>";
+		
+		for (let j=0; j < nbLignes; j++)
+		{
 			grille_html += "<tr><td></tr>";
 		}
 		grille_html += '</table>';
@@ -185,27 +222,30 @@ function creerGrille(nbColonnes, nbLignes) {
 }
 
 
-function creerGrilleAncien() {
-	let grille_html = "";
-	grille_html += "<table class='colonne' id='colonne1'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
-	grille_html += "<table class='colonne' id='colonne2'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html += "<table class='colonne' id='colonne3'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html += "<table class='colonne' id='colonne4'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html += "<table class='colonne' id='colonne5'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html += "<table class='colonne' id='colonne6'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html += "<table class='colonne' id='colonne7'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+
+function creerGrilleAncien() //par kimi
+{
+	let grille_html="";
+	grille_html+="<table class='colonne' id='colonne1'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
+	grille_html+="<table class='colonne' id='colonne2'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne3'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne4'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne5'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne6'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
+	grille_html+="<table class='colonne' id='colonne7'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
 	return grille_html;
 }
 
 
-function supprimerGrille() {
-	let jeu = document.getElementById("jeu");
-	jeu.innerHTML = "";
+function supprimerGrille() // par kimi, pour des tests
+{
+	let page = document.getElementById("page");
+	page.innerHTML ="";
 }
 
-function jetonclick(nbLignes, nbColonnes)
+function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
 {
-	let plateau = [];
+	plateau = [];
 	for (let i = 0; i < nbLignes; i++) {
 		plateau[i] = [];
 		for (let j = 0; j < nbColonnes; j++) {
@@ -236,6 +276,9 @@ function jetonclick(nbLignes, nbColonnes)
 			{
 				prochaineLigneVide[numeroColonne] += 1;
 				plateau[ligne][numeroColonne] = joueurActuel;
+				detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel);
+				detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel);
+				detectVictoireDiagonales(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
 				let cellule = document.getElementById("colonne" + numeroColonne).rows[nbLignes - ligne - 1];
 				console.log("cellule :", cellule);
 				cellule.classList.add("jetonJoueur" + joueurActuel);
@@ -243,5 +286,198 @@ function jetonclick(nbLignes, nbColonnes)
 				joueurActuel = ((joueurActuel-2)*-1)+1;
 			}
 		})
+	}
+}
+
+//console.log("Vérification : x =", x, "y =", y); pour des test par kimi à mettre entre le while et le if dans les detections
+
+function detectVictoireDiagonales(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
+{
+	detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	if(compteDiagonalHDmax==3 && compteDiagonalBGmax>=2)
+	{
+		{
+			console.log("WIN joueur "+joueurActuel);
+			menu="fin"+joueurActuel;
+			jeu(nbLignes, nbColonnes);
+		}
+	}
+}
+	
+	
+function detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
+{
+	let compteDiagonalHD = 0
+	compteDiagonalHDmax = 0
+	let y = ligne
+	let x = numeroColonne
+	while(y<nbColonnes-1 && x<nbLignes)
+	{
+		if(plateau[y][x]==joueurActuel)
+		{
+			compteDiagonalHD+=1
+			console.log("DiagonalHD :",compteDiagonalHD)
+			if(compteDiagonalHD>=compteDiagonalHDmax)
+			{
+				compteDiagonalHDmax=compteDiagonalHD
+			}
+			if(compteDiagonalHD==4)
+				{
+					console.log("WIN joueur "+joueurActuel);
+					menu="fin"+joueurActuel;
+					jeu(nbLignes, nbColonnes);
+				}
+			else if(plateau[y][x]!=joueurActuel)
+			{
+				compteDiagonalHD=0;
+			}
+		}
+		y+=1
+		x+=1
+	}
+}
+function detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
+{
+	let compteDiagonalHG = 0
+	compteDiagonalHGmax = 0
+	let y = ligne
+	let x = numeroColonne
+	while(y<nbLignes && x>=0)
+	{
+		if(plateau[y][x]==joueurActuel)
+		{
+			compteDiagonalHG+=1
+			console.log("DiagonalHG :",compteDiagonalHG)
+			if(compteDiagonalHG>=compteDiagonalHGmax)
+			{
+				compteDiagonalHGmax=compteDiagonalHG
+			}
+			if(compteDiagonalHG==4)
+				{
+					console.log("WIN joueur "+joueurActuel);
+					menu="fin"+joueurActuel;
+					jeu(nbLignes, nbColonnes);
+				}
+			else if(plateau[y][x]!=joueurActuel)
+			{
+				compteDiagonalHG=0;
+			}
+		}
+		y+=1
+		x-=1
+	}
+}
+function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
+{
+	let compteDiagonalBG = 0
+	compteDiagonalBGmax = 0
+	let y = ligne
+	let x = numeroColonne
+	while(y>=0 && x>=0)
+	{
+		if(plateau[y][x]==joueurActuel)
+		{
+			compteDiagonalBG+=1;
+			console.log("DiagonalBG :",compteDiagonalBG);
+			if(compteDiagonalBG>=compteDiagonalBGmax)
+			{
+				compteDiagonalBGmax=compteDiagonalBG;
+			}
+			if(compteDiagonalBG==4)
+				{
+					console.log("WIN joueur "+joueurActuel);
+					menu="fin"+joueurActuel;
+					jeu(nbLignes, nbColonnes);
+				}
+			else if(plateau[y][x]!=joueurActuel)
+			{
+				compteDiagonalBG=0;
+			}
+		}
+		y-=1
+		x-=1
+	}
+}
+function detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
+{
+	let compteDiagonalBD = 0
+	compteDiagonalBDmax = 0
+	let y = ligne
+	let x = numeroColonne
+	while(y<nbColonnes-1 && x>=0)
+	{
+		if(plateau[y][x]==joueurActuel)
+		{
+			compteDiagonalBD+=1
+			console.log("DiagonalBD :",compteDiagonalBD)
+			if(compteDiagonalBD>=compteDiagonalBDmax)
+			{
+				compteDiagonalBDmax=compteDiagonalBD
+				console.log("caca:",compteDiagonalBDmax)
+			}
+			if(compteDiagonalBD==4)
+				{
+					console.log("WIN joueur "+joueurActuel);
+					menu="fin"+joueurActuel;
+					jeu(nbLignes, nbColonnes);
+				}
+			else if(plateau[y][x]!=joueurActuel)
+			{
+				compteDiagonalBD=0;
+			}
+		}
+		y+=1
+		x-=1
+	}
+}
+
+
+
+
+function detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel)//kimi
+{
+	let compteHorizontal = 0
+	for(let j = 0; j < nbColonnes; j++)
+	{
+		if(plateau[ligne][j]==joueurActuel)
+		{
+			compteHorizontal+=1
+			console.log("Horizontal :",compteHorizontal)
+			if(compteHorizontal==4)
+				{
+					console.log("WIN joueur "+joueurActuel);
+					menu="fin"+joueurActuel;
+					jeu(nbLignes, nbColonnes);
+				}
+		}
+		else if(plateau[ligne][j]!=joueurActuel)
+		{
+			compteHorizontal=0;
+		}
+	}
+}
+function detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel)//kimi
+{
+	let compteVertical = 0
+	for(let i = 0; i < nbLignes; i++)
+	{
+		if(plateau[i][numeroColonne]==joueurActuel)
+		{
+			compteVertical+=1
+			console.log("Vertical :",compteVertical)
+			if(compteVertical==4)
+				{
+					console.log("WIN joueur "+joueurActuel);
+					menu="fin"+joueurActuel;
+					jeu(nbLignes, nbColonnes);
+				}
+		}
+		else if(plateau[i][numeroColonne]!=joueurActuel)
+		{
+			compteVertical=0;
+		}
 	}
 }
