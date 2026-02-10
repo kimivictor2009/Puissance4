@@ -293,145 +293,113 @@ function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
 
 function detectVictoireDiagonales(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
-	detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
-	detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
-	detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
-	detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
-	if(compteDiagonalHDmax==3 && compteDiagonalBGmax>=2)
-	{
+	let HD = detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	let HG = detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	let BD = detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	let BG = detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
+	let diago1=HD+BG;
+	let diago2=HG+BD;
+	if(diago1>=5||diago2>=5)
 		{
-			console.log("WIN joueur "+joueurActuel);
-			menu="fin"+joueurActuel;
-			jeu(nbLignes, nbColonnes);
+				console.log("WIN joueur "+joueurActuel);
+				menu="fin"+joueurActuel;
+				jeu(nbLignes, nbColonnes);
 		}
-	}
 }
 	
 	
 function detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let compteDiagonalHD = 0
-	compteDiagonalHDmax = 0
 	let y = ligne
 	let x = numeroColonne
-	while(y<nbColonnes-1 && x<nbLignes)
+	let diago = true
+	//console.log(ligne, numeroColonne);
+	//console.log(nbColonnes,nbLignes);
+	while(y<nbLignes && x<nbColonnes && diago==true)
 	{
+		//console.log("Vérification : x =", x, "y =", y);
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalHD+=1
-			console.log("DiagonalHD :",compteDiagonalHD)
-			if(compteDiagonalHD>=compteDiagonalHDmax)
+			if(plateau[y][x]!=joueurActuel)
 			{
-				compteDiagonalHDmax=compteDiagonalHD
-			}
-			if(compteDiagonalHD==4)
-				{
-					console.log("WIN joueur "+joueurActuel);
-					menu="fin"+joueurActuel;
-					jeu(nbLignes, nbColonnes);
-				}
-			else if(plateau[y][x]!=joueurActuel)
-			{
-				compteDiagonalHD=0;
+				diago=false;
 			}
 		}
-		y+=1
-		x+=1
+		y+=1;
+		x+=1;
 	}
+	console.log("returnHD :",compteDiagonalHD);
+	return compteDiagonalHD;
 }
 function detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let compteDiagonalHG = 0
-	compteDiagonalHGmax = 0
 	let y = ligne
 	let x = numeroColonne
-	while(y<nbLignes && x>=0)
+	let diago = true
+	while(y<nbLignes && x>=0 && diago==true)
 	{
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalHG+=1
-			console.log("DiagonalHG :",compteDiagonalHG)
-			if(compteDiagonalHG>=compteDiagonalHGmax)
+			if(plateau[y][x]!=joueurActuel)
 			{
-				compteDiagonalHGmax=compteDiagonalHG
-			}
-			if(compteDiagonalHG==4)
-				{
-					console.log("WIN joueur "+joueurActuel);
-					menu="fin"+joueurActuel;
-					jeu(nbLignes, nbColonnes);
-				}
-			else if(plateau[y][x]!=joueurActuel)
-			{
-				compteDiagonalHG=0;
+				diago=false;
 			}
 		}
 		y+=1
 		x-=1
 	}
+	console.log("returnHG :",compteDiagonalHG);
+	return compteDiagonalHG;
 }
 function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let compteDiagonalBG = 0
-	compteDiagonalBGmax = 0
 	let y = ligne
 	let x = numeroColonne
-	while(y>=0 && x>=0)
+	let diago = true
+	while(y>=0 && x>=0 && diago==true)
 	{
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalBG+=1;
-			console.log("DiagonalBG :",compteDiagonalBG);
-			if(compteDiagonalBG>=compteDiagonalBGmax)
+			if(plateau[y][x]!=joueurActuel)
 			{
-				compteDiagonalBGmax=compteDiagonalBG;
-			}
-			if(compteDiagonalBG==4)
-				{
-					console.log("WIN joueur "+joueurActuel);
-					menu="fin"+joueurActuel;
-					jeu(nbLignes, nbColonnes);
-				}
-			else if(plateau[y][x]!=joueurActuel)
-			{
-				compteDiagonalBG=0;
+				diago=false;
 			}
 		}
 		y-=1
 		x-=1
 	}
+	console.log("returnBG :",compteDiagonalBG);
+	return compteDiagonalBG;
 }
 function detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let compteDiagonalBD = 0
-	compteDiagonalBDmax = 0
 	let y = ligne
 	let x = numeroColonne
-	while(y<nbColonnes-1 && x>=0)
+	let diago = true
+	//console.log(ligne, numeroColonne);
+	//console.log(nbColonnes,nbLignes);
+	while(y>=0 && x<nbColonnes && diago == true)
 	{
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalBD+=1
-			console.log("DiagonalBD :",compteDiagonalBD)
-			if(compteDiagonalBD>=compteDiagonalBDmax)
+			if(plateau[y][x]!=joueurActuel)
 			{
-				compteDiagonalBDmax=compteDiagonalBD
-				console.log("caca:",compteDiagonalBDmax)
-			}
-			if(compteDiagonalBD==4)
-				{
-					console.log("WIN joueur "+joueurActuel);
-					menu="fin"+joueurActuel;
-					jeu(nbLignes, nbColonnes);
-				}
-			else if(plateau[y][x]!=joueurActuel)
-			{
-				compteDiagonalBD=0;
+				diago=false;
 			}
 		}
-		y+=1
-		x-=1
+		y-=1
+		x+=1
 	}
+	console.log("returnBD :",compteDiagonalBD);
+	return compteDiagonalBD;
 }
 
 
