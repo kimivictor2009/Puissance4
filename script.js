@@ -223,7 +223,7 @@ function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi(reprise de la fon
 
 
 
-function creerGrilleAncien() //par kimi
+function creerGrilleAncien() //par kimi obsolete
 {
 	let grille_html="";
 	grille_html+="<table class='colonne' id='colonne1'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
@@ -276,7 +276,7 @@ function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
 			{
 				prochaineLigneVide[numeroColonne] += 1;
 				plateau[ligne][numeroColonne] = joueurActuel;
-				detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel);
+				detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel); 
 				detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel);
 				detectVictoireDiagonales(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
 				let cellule = document.getElementById("colonne" + numeroColonne).rows[nbLignes - ligne - 1];
@@ -290,7 +290,7 @@ function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
 }
 
 //console.log("Vérification : x =", x, "y =", y); pour des test par kimi à mettre entre le while et le if dans les detections
-
+//HD:haut à droite, HG:haut à gauche, BD: bas à droite, BG:bas à gauche
 function detectVictoireDiagonales(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let HD = detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
@@ -322,10 +322,10 @@ function detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, j
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalHD+=1
-			if(plateau[y][x]!=joueurActuel)
-			{
-				diago=false;
-			}
+		}
+		else if(plateau[y][x]!=joueurActuel)
+		{
+			diago=false;
 		}
 		y+=1;
 		x+=1;
@@ -344,10 +344,10 @@ function detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, j
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalHG+=1
-			if(plateau[y][x]!=joueurActuel)
-			{
-				diago=false;
-			}
+		}
+		else if(plateau[y][x]!=joueurActuel)
+		{
+			diago=false;
 		}
 		y+=1
 		x-=1
@@ -366,10 +366,10 @@ function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, j
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalBG+=1;
-			if(plateau[y][x]!=joueurActuel)
-			{
-				diago=false;
-			}
+		}
+		if(plateau[y][x]!=joueurActuel)
+		{
+			diago=false;
 		}
 		y-=1
 		x-=1
@@ -390,10 +390,10 @@ function detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, j
 		if(plateau[y][x]==joueurActuel)
 		{
 			compteDiagonalBD+=1
-			if(plateau[y][x]!=joueurActuel)
-			{
-				diago=false;
-			}
+		}
+		else if(plateau[y][x]!=joueurActuel)
+		{
+			diago=false;
 		}
 		y-=1
 		x+=1
