@@ -248,7 +248,7 @@ function supprimerGrille() // par kimi, pour des tests
 	page.innerHTML ="";
 }
 
-function jetonclick(nbLignes, nbColonnes)
+function jetonclick(nbLignes, nbColonnes) // par axel et une ligne ou deux de victor
 {
 	plateau = [];
 	for (let i = 0; i < nbLignes; i++) {
