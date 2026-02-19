@@ -50,6 +50,7 @@ function allerAccueil() //par kimi
 
 function allerClassique() // par victor
 {
+	varianteActuelle = 0;
 	let nbColonnes = 7
 	let nbLignes = 6
 	let longueur = 70 * nbColonnes;
@@ -74,6 +75,7 @@ function allerClassique() // par victor
 
 function allerVar1() // par victor (copié-collé)
 {
+	varianteActuelle = 1;
 	let nbColonnes = 7
 	let nbLignes = 6
 	let longueur = 70 * nbColonnes;
@@ -97,6 +99,7 @@ function allerVar1() // par victor (copié-collé)
 
 function allerVar2() // par victor (copié-collé)
 {
+	varianteActuelle = 2;
 	let nbColonnes = 12
 	let nbLignes = 10
 	let longueur = 70 * nbColonnes;
@@ -121,6 +124,7 @@ function allerVar2() // par victor (copié-collé)
 
 function allerVar3() // par victor (copié-collé)
 {
+	varianteActuelle = 3;
 	let nbColonnes = 5
 	let nbLignes = 4
 	let longueur = 70 * nbColonnes;
@@ -144,6 +148,7 @@ function allerVar3() // par victor (copié-collé)
 
 function allerVar4() // par victor (copié-collé)
 {
+	varianteActuelle = 4;
 	let nbColonnes = 7
 	let nbLignes = 6
 	let longueur = 70 * nbColonnes;
@@ -177,11 +182,11 @@ function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fi
 	}
 	if (menu=="fin1")
 	{
-		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J1</h1>"
+		main.innerHTML +="<h1>Fin du ^4! Victoire j1!</h1>"
 	}
 	if (menu=="fin2")
 	{
-		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J2</h1>"
+		main.innerHTML +="<h1>Fin du ^4! Victoire j2!</h1>"
 	}
 }
 
@@ -223,7 +228,7 @@ function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi(reprise de la fon
 
 
 
-function creerGrilleAncien() //par kimi obsolete
+function creerGrilleAncien() //par kimi obsolète
 {
 	let grille_html="";
 	grille_html+="<table class='colonne' id='colonne1'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
@@ -243,7 +248,7 @@ function supprimerGrille() // par kimi, pour des tests
 	page.innerHTML ="";
 }
 
-function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
+function jetonclick(nbLignes, nbColonnes)
 {
 	plateau = [];
 	for (let i = 0; i < nbLignes; i++) {
@@ -259,6 +264,7 @@ function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
 	}
 
 	let joueurActuel = 1;
+	let compteurTours = 0;
 	let colonnes = document.querySelectorAll(".colonne");
 	console.log("colonnes trouvées :", colonnes.length);
 	
@@ -269,17 +275,47 @@ function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
 		{
 			console.log("colonne cliquée :", i);
 			let numeroColonne = i;
-			let ligne = prochaineLigneVide[numeroColonne];
-			console.log("ligne choisie :", ligne);
+			let ligneJoueur = prochaineLigneVide[numeroColonne];
+			console.log("ligne choisie :", ligneJoueur);
 
-			if (ligne < nbLignes)
+			if (ligneJoueur < nbLignes)
 			{
+				compteurTours += 1;
+
+				if (varianteActuelle == 4 && compteurTours == 2)
+				{
+					console.log("2 coups");
+					let colonnesValides = [];
+					let k = 0;
+					for (let j = 0; j < nbColonnes; j++)
+					{
+						if (prochaineLigneVide[j] < nbLignes)
+						{
+							colonnesValides[k] = j;
+							k += 1;
+						}
+					}
+
+					if (colonnesValides.length > 0)
+					{
+						let indexRandom = Math.floor(Math.random() * colonnesValides.length);
+						let col = colonnesValides[indexRandom];
+						let ligneNeutre = prochaineLigneVide[col];
+						plateau[ligneNeutre][col] = 3;
+						let cellule = document.getElementById("colonne" + col).rows[nbLignes - ligneNeutre - 1];
+						cellule.classList.add("jetonNeutre");
+						prochaineLigneVide[col]++;
+						compteurTours = 0;
+						console.log(plateau);
+					}
+				}
+
 				prochaineLigneVide[numeroColonne] += 1;
-				plateau[ligne][numeroColonne] = joueurActuel;
-				detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel); 
+				plateau[ligneJoueur][numeroColonne] = joueurActuel;
+				detectVictoireHorizontale(nbLignes, nbColonnes, ligneJoueur, joueurActuel);
 				detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel);
-				detectVictoireDiagonales(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel);
-				let cellule = document.getElementById("colonne" + numeroColonne).rows[nbLignes - ligne - 1];
+				detectVictoireDiagonales(nbLignes, nbColonnes, ligneJoueur, numeroColonne, joueurActuel);
+				let cellule = document.getElementById("colonne" + numeroColonne).rows[nbLignes - ligneJoueur - 1];
 				console.log("cellule :", cellule);
 				cellule.classList.add("jetonJoueur" + joueurActuel);
 				console.log("classe ajoutée :", cellule.className);
@@ -287,7 +323,7 @@ function jetonclick(nbLignes, nbColonnes)//axel et un peu de victor?
 			}
 		})
 	}
-}
+} 
 
 //console.log("Vérification : x =", x, "y =", y); pour des test par kimi à mettre entre le while et le if dans les detections
 //HD:haut à droite, HG:haut à gauche, BD: bas à droite, BG:bas à gauche
