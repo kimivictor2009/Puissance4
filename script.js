@@ -248,7 +248,7 @@ function supprimerGrille() // par kimi, pour des tests
 	page.innerHTML ="";
 }
 
-function jetonclick(nbLignes, nbColonnes) // par axel et une ligne ou deux de victor
+function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de victor
 {
 	plateau = [];
 	for (let i = 0; i < nbLignes; i++) {
@@ -282,7 +282,18 @@ function jetonclick(nbLignes, nbColonnes) // par axel et une ligne ou deux de vi
 			{
 				compteurTours += 1;
 
-				if (varianteActuelle == 4 && compteurTours == 2)
+				prochaineLigneVide[numeroColonne] += 1;
+				plateau[ligneJoueur][numeroColonne] = joueurActuel;
+				detectVictoireHorizontale(nbLignes, nbColonnes, ligneJoueur, joueurActuel);
+				detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel);
+				detectVictoireDiagonales(nbLignes, nbColonnes, ligneJoueur, numeroColonne, joueurActuel);
+				let cellule = document.getElementById("colonne" + numeroColonne).rows[nbLignes - ligneJoueur - 1];
+				console.log("cellule :", cellule);
+				cellule.classList.add("jetonJoueur" + joueurActuel);
+				console.log("classe ajoutée :", cellule.className);
+				joueurActuel = ((joueurActuel-2)*-1)+1;
+
+				if (varianteActuelle == 4 && compteurTours >= 2)
 				{
 					console.log("2 coups");
 					let colonnesValides = [];
@@ -302,28 +313,18 @@ function jetonclick(nbLignes, nbColonnes) // par axel et une ligne ou deux de vi
 						let col = colonnesValides[indexRandom];
 						let ligneNeutre = prochaineLigneVide[col];
 						plateau[ligneNeutre][col] = 3;
-						let cellule = document.getElementById("colonne" + col).rows[nbLignes - ligneNeutre - 1];
-						cellule.classList.add("jetonNeutre");
+						let celluleNeutre = document.getElementById("colonne" + col).rows[nbLignes - ligneNeutre - 1];
+						celluleNeutre.classList.add("jetonNeutre");
 						prochaineLigneVide[col]++;
 						compteurTours = 0;
 						console.log(plateau);
 					}
 				}
-
-				prochaineLigneVide[numeroColonne] += 1;
-				plateau[ligneJoueur][numeroColonne] = joueurActuel;
-				detectVictoireHorizontale(nbLignes, nbColonnes, ligneJoueur, joueurActuel);
-				detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel);
-				detectVictoireDiagonales(nbLignes, nbColonnes, ligneJoueur, numeroColonne, joueurActuel);
-				let cellule = document.getElementById("colonne" + numeroColonne).rows[nbLignes - ligneJoueur - 1];
-				console.log("cellule :", cellule);
-				cellule.classList.add("jetonJoueur" + joueurActuel);
-				console.log("classe ajoutée :", cellule.className);
-				joueurActuel = ((joueurActuel-2)*-1)+1;
 			}
 		})
 	}
 } 
+
 
 //console.log("Vérification : x =", x, "y =", y); pour des test par kimi à mettre entre le while et le if dans les detections
 //HD:haut à droite, HG:haut à gauche, BD: bas à droite, BG:bas à gauche
