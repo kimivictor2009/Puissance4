@@ -3,6 +3,7 @@
     background-color: #e1aafe;
     padding-right: 100%;
     outline: 10px solid #e1aafe;
+    display: flex;
 }
 
 .logo

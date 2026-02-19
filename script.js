@@ -3,15 +3,53 @@ logoimg.addEventListener('click', allerAccueil);
 
 allerAccueil()
 
+//par victor
+const pubListe = ["img/pub_Ch4t0nV.png", "img/pub_cleub.png", "img/pub_hachenoire.png", "img/pub_iphoune.png", "img/pub_larry.png", "img/pub_pub.png", "img/pub_pychess.png"]
+let pubDejaMises = ""; //str des index des pub deja mises peu avant
+
+changerPub()
+
+let periode = 20000; // = 20 secondes
+setInterval(changerPub, periode);
+
+function changerPub() //par victor
+{
+	// genere pub
+	let index = Math.floor(Math.random() * pubListe.length);
+
+	if (pubDejaMises.length != pubListe.length)
+	{
+		while (pubDejaMises.indexOf(index.toString()) != -1)
+		{
+			index = Math.floor(Math.random() * pubListe.length);
+		}
+	} else {
+		while (pubDejaMises[pubListe.length - 1] == index)
+		{
+			index = Math.floor(Math.random() * pubListe.length);
+		}
+		pubDejaMises = "";
+	}
+	let pub = pubListe[index];
+	console.log(pub);
+	pubDejaMises += index.toString();
+
+	//insere pub
+	let pubImg = document.querySelector(".pub");
+	pubImg.src = pub;
+
+	// Pub spéciales
+
+}
 
 function repeatStr(str, nb) //regroupe la str entrée nb fois, par victor
 {
-	let output = str
+	let output = str;
 	for (let i=1; i<nb; i++)
 	{
-		output += str
+		output += str;
 	}
-	return output
+	return output;
 }
 
 
@@ -50,9 +88,10 @@ function allerAccueil() //par kimi
 
 function allerClassique() // par victor
 {
-	varianteActuelle = 0;
-	let nbColonnes = 7
-	let nbLignes = 6
+	let varianteActuelle = 0;
+
+	let nbColonnes = 7;
+	let nbLignes = 6;
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
@@ -75,9 +114,10 @@ function allerClassique() // par victor
 
 function allerVar1() // par victor (copié-collé)
 {
-	varianteActuelle = 1;
-	let nbColonnes = 7
-	let nbLignes = 6
+	let varianteActuelle = 1;
+
+	let nbColonnes = 7;
+	let nbLignes = 6;
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
@@ -99,9 +139,10 @@ function allerVar1() // par victor (copié-collé)
 
 function allerVar2() // par victor (copié-collé)
 {
-	varianteActuelle = 2;
-	let nbColonnes = 12
-	let nbLignes = 10
+	let varianteActuelle = 2;
+
+	let nbColonnes = 12;
+	let nbLignes = 10;
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
@@ -124,9 +165,10 @@ function allerVar2() // par victor (copié-collé)
 
 function allerVar3() // par victor (copié-collé)
 {
-	varianteActuelle = 3;
-	let nbColonnes = 5
-	let nbLignes = 4
+	let varianteActuelle = 3;
+
+	let nbColonnes = 5;
+	let nbLignes = 4;
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
@@ -148,9 +190,10 @@ function allerVar3() // par victor (copié-collé)
 
 function allerVar4() // par victor (copié-collé)
 {
-	varianteActuelle = 4;
-	let nbColonnes = 7
-	let nbLignes = 6
+	let varianteActuelle = 4;
+
+	let nbColonnes = 7;
+	let nbLignes = 6;
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
@@ -166,8 +209,8 @@ function allerVar4() // par victor (copié-collé)
 	main.innerHTML = ajout;
 
 	menu = "jeu";
-	jeu(nbLignes, nbColonnes);
 	
+	jeu(nbLignes, nbColonnes);
 }
 
 
@@ -182,12 +225,27 @@ function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fi
 	}
 	if (menu=="fin1")
 	{
-		main.innerHTML +="<h1>Fin du ^4! Victoire j1!</h1>"
+		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J1</h1>"
+		if (varianteActuelle==1)
+		{
+			let jeton1 = document.querySelectorAll(".confusion tbody tr.jetonJoueur1 td");
+			let jeton2 = document.querySelectorAll(".confusion tbody tr.jetonJoueur2 td");
+
+			for (let i=0; i<jeton1.length-1; i++)
+			{
+				jeton1[i].style.backgroundColor = "yellow";
+			}
+			for (let i=0; i<jeton2.length-1; i++)
+			{
+				jeton2[i].style.backgroundColor = "red";
+			}
+		}
 	}
 	if (menu=="fin2")
 	{
-		main.innerHTML +="<h1>Fin du ^4! Victoire j2!</h1>"
+		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J2</h1>"
 	}
+
 }
 
 
@@ -209,7 +267,7 @@ function creerGrille(nbColonnes, nbLignes) //par victor (optimisation du code de
 	return grille_html;
 }
 
-function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi(reprise de la fonction de victor afin de l'adapter à la variante confusion)
+function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi (reprise de la fonction de victor afin de l'adapter à la variante confusion)
 {
 	let grille_html="";
 	let hauteur = 70 * nbLignes;
@@ -226,20 +284,6 @@ function creerGrilleConfusion(nbColonnes, nbLignes) //par kimi(reprise de la fon
 	return grille_html;
 }
 
-
-
-function creerGrilleAncien() //par kimi obsolète
-{
-	let grille_html="";
-	grille_html+="<table class='colonne' id='colonne1'><tr><td class='r6white'></tr><tr><td class='r5white'></tr><tr><td class='r4white'></tr><tr><td class='r3white'></tr><tr><td class='r2white'></tr><tr><td class='r1white'></tr></table>";
-	grille_html+="<table class='colonne' id='colonne2'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonne3'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonne4'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonne5'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonne6'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	grille_html+="<table class='colonne' id='colonne7'><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr><tr><td></tr></table>";
-	return grille_html;
-}
 
 
 function supprimerGrille() // par kimi, pour des tests
@@ -284,14 +328,17 @@ function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de vict
 
 				prochaineLigneVide[numeroColonne] += 1;
 				plateau[ligneJoueur][numeroColonne] = joueurActuel;
-				detectVictoireHorizontale(nbLignes, nbColonnes, ligneJoueur, joueurActuel);
-				detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel);
-				detectVictoireDiagonales(nbLignes, nbColonnes, ligneJoueur, numeroColonne, joueurActuel);
+
 				let cellule = document.getElementById("colonne" + numeroColonne).rows[nbLignes - ligneJoueur - 1];
 				console.log("cellule :", cellule);
 				cellule.classList.add("jetonJoueur" + joueurActuel);
 				console.log("classe ajoutée :", cellule.className);
-				joueurActuel = ((joueurActuel-2)*-1)+1;
+
+				detectVictoireHorizontale(nbLignes, nbColonnes, ligneJoueur, joueurActuel);
+				detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel);
+				detectVictoireDiagonales(nbLignes, nbColonnes, ligneJoueur, numeroColonne, joueurActuel);
+
+				joueurActuel = ((joueurActuel-2)*-1)+1;				
 
 				if (varianteActuelle == 4 && compteurTours >= 2)
 				{
@@ -323,8 +370,7 @@ function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de vict
 			}
 		})
 	}
-} 
-
+}
 
 //console.log("Vérification : x =", x, "y =", y); pour des test par kimi à mettre entre le while et le if dans les detections
 //HD:haut à droite, HG:haut à gauche, BD: bas à droite, BG:bas à gauche
@@ -370,6 +416,7 @@ function detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, j
 	console.log("returnHD :",compteDiagonalHD);
 	return compteDiagonalHD;
 }
+
 function detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let compteDiagonalHG = 0
@@ -392,6 +439,7 @@ function detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, j
 	console.log("returnHG :",compteDiagonalHG);
 	return compteDiagonalHG;
 }
+
 function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let compteDiagonalBG = 0
@@ -414,6 +462,7 @@ function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, j
 	console.log("returnBG :",compteDiagonalBG);
 	return compteDiagonalBG;
 }
+
 function detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
 	let compteDiagonalBD = 0
@@ -439,9 +488,6 @@ function detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, j
 	return compteDiagonalBD;
 }
 
-
-
-
 function detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel)//kimi
 {
 	let compteHorizontal = 0
@@ -464,6 +510,7 @@ function detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel)//k
 		}
 	}
 }
+
 function detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel)//kimi
 {
 	let compteVertical = 0
