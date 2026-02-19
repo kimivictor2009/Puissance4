@@ -13,7 +13,6 @@ body {
     background-color: #e1aafe;
     padding-right: 100%;
     outline: 10px solid #e1aafe;
-    display: flex;
 }
 
 .logo
@@ -52,7 +51,7 @@ body {
 
 body
 {
-    color: #303030;
+    color: white;
     background-color: #f8f2e4;
     font-family: 'Franklin Gothic Demi', 'Arial Narrow', Arial, sans-serif
 }
@@ -60,12 +59,14 @@ body
 h1
 {
     font-family: 'Magneto', Arial, sans-serif ;
+	color: white;
 }
 
 
 caption
 {
 	caption-side: bottom;
+	color: white;
 }
 
 
@@ -131,4 +132,8 @@ table
 .confusion tbody tr.jetonJoueur2 td
 {	
 	background-color:grey;
+}
+
+.colonne tbody tr.jetonNeutre td {
+    background-color: grey;
 }
