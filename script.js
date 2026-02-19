@@ -39,7 +39,30 @@ function changerPub() //par victor
 	pubImg.src = pub;
 
 	// Pub spéciales
+	let lienPub = document.querySelector(".lienpub");
 
+	if (pub == "img/pub_hachenoire.png")
+	{
+		lien = "https://scratch.mit.edu/users/hachenoire/";
+	}
+	else if (pub == "img/pub_Ch4t0nV.png")
+	{
+		lien = "https://scratch.mit.edu/users/Ch4t0nV/";
+	}
+	else if (pub == "img/pub_pychess.png")
+	{
+		lien = "https://github.com/kimivictor2009/Projets_NSI/blob/main/Projet%201.zip";
+	}
+	else if (pub == "nom pub")
+	{
+		lien = "lien";
+	}
+	else
+	{
+		lien = ""
+	}
+
+	lienPub.href = lien;
 }
 
 function repeatStr(str, nb) //regroupe la str entrée nb fois, par victor
@@ -81,7 +104,10 @@ function allerAccueil() //par kimi
 	Cela se joue dans une grille de 7 colonnes de 6 cases et à l’aide de jetons de couleurs différentes.<br>
 	Chacun leur tour, les joueurs doivent déposer un jeton de leur couleur dans une colonne, et celui-ci se dépose en bas de la grille.<br>
 	Le premier joueur à aligner 4 jetons, verticalement, horizontalement ou en diagonale, remporte la partie.</p>
-	</div>`;
+	</div>`
+	+ repeatStr("<br></br>", 50)
+	+ `<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank"><p>Rien ici</p></a>`;
+
 	main.innerHTML = accueil;
 }
 
@@ -533,3 +559,41 @@ function detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActu
 		}
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+    |\__/,|   (`\
+  _.|o o  |_   ) )
+-(((---(((--------
+
+
+*/
