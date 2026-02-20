@@ -251,7 +251,7 @@ function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fi
 	}
 	if (menu=="fin1")
 	{
-		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J1</h1>"
+		main.innerHTML +="<h1>Fin du ^4! Victoire j1!</h1>"
 		if (varianteActuelle==1)
 		{
 			let jeton1 = document.querySelectorAll(".confusion tbody tr.jetonJoueur1 td");
@@ -269,7 +269,7 @@ function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fi
 	}
 	if (menu=="fin2")
 	{
-		main.innerHTML +="<h1>FIN DU ^4 VICTOIRE J2</h1>"
+		main.innerHTML +="<h1>Fin du ^4! Victoire j2!</h1>"
 	}
 
 }
@@ -338,7 +338,7 @@ function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de vict
 	let colonnes = document.querySelectorAll(".colonne");
 	console.log("colonnes trouvées :", colonnes.length);
 	
-	for (let i = 0; i < colonnes.length; i++)
+	for (let i = 0; i < colonnes.length; i++) 
 	{
 		let colonne = colonnes[i];
 		colonne.addEventListener('click', function ()
