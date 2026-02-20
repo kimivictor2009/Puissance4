@@ -1,6 +1,6 @@
 let logoimg = document.getElementById("logo");
 logoimg.addEventListener('click', allerAccueil);
-
+let plateau = [];
 allerAccueil()
 
 //par victor
@@ -286,7 +286,7 @@ function creerGrille(nbColonnes, nbLignes) //par victor (optimisation du code de
 		
 		for (let j=0; j < nbLignes; j++)
 		{
-			grille_html += "<tr><td></tr>";
+			grille_html += "<tr><td></td></tr>";
 		}
 		grille_html += '</table>';
 	}
@@ -320,6 +320,7 @@ function supprimerGrille() // par kimi, pour des tests
 
 function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de victor
 {
+	plateau = [];
 	for (let i = 0; i < nbLignes; i++) {
 		plateau[i] = [];
 		for (let j = 0; j < nbColonnes; j++) {
@@ -343,7 +344,6 @@ function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de vict
 		colonne.addEventListener('click', function ()
 		{
 			console.log("colonne cliquée :", i);
-			plateau = [];
 			let numeroColonne = i;
 			let ligneJoueur = prochaineLigneVide[numeroColonne];
 			console.log("ligne choisie :", ligneJoueur);
@@ -559,7 +559,6 @@ function detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActu
 		}
 	}
 }
-
 
 
 
