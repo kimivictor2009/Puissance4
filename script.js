@@ -320,7 +320,6 @@ function supprimerGrille() // par kimi, pour des tests
 
 function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de victor
 {
-	plateau = [];
 	for (let i = 0; i < nbLignes; i++) {
 		plateau[i] = [];
 		for (let j = 0; j < nbColonnes; j++) {
@@ -344,6 +343,7 @@ function jetonclick(nbLignes, nbColonnes) // par axel, une ligne ou deux de vict
 		colonne.addEventListener('click', function ()
 		{
 			console.log("colonne cliquée :", i);
+			plateau = [];
 			let numeroColonne = i;
 			let ligneJoueur = prochaineLigneVide[numeroColonne];
 			console.log("ligne choisie :", ligneJoueur);
@@ -559,6 +559,7 @@ function detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActu
 		}
 	}
 }
+
 
 
 
