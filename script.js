@@ -114,7 +114,7 @@ function allerAccueil() //par kimi
 
 function allerClassique() // par victor
 {
-	let varianteActuelle = 0;
+	varianteActuelle = 0;
 
 	let nbColonnes = 7;
 	let nbLignes = 6;
@@ -140,7 +140,7 @@ function allerClassique() // par victor
 
 function allerVar1() // par victor (copié-collé)
 {
-	let varianteActuelle = 1;
+	varianteActuelle = 1;
 
 	let nbColonnes = 7;
 	let nbLignes = 6;
@@ -165,7 +165,7 @@ function allerVar1() // par victor (copié-collé)
 
 function allerVar2() // par victor (copié-collé)
 {
-	let varianteActuelle = 2;
+	varianteActuelle = 2;
 
 	let nbColonnes = 12;
 	let nbLignes = 10;
@@ -191,8 +191,8 @@ function allerVar2() // par victor (copié-collé)
 
 function allerVar3() // par victor (copié-collé)
 {
-	let varianteActuelle = 3;
-
+	varianteActuelle = 3;
+	
 	let nbColonnes = 5;
 	let nbLignes = 4;
 	let longueur = 70 * nbColonnes;
@@ -216,10 +216,10 @@ function allerVar3() // par victor (copié-collé)
 
 function allerVar4() // par victor (copié-collé)
 {
-	let varianteActuelle = 4;
+	varianteActuelle = 4;
 
-	let nbColonnes = 7;
-	let nbLignes = 6;
+	let nbColonnes = 12;
+	let nbLignes = 10;
 	let longueur = 70 * nbColonnes;
 	
 	let main = document.getElementById("page");
