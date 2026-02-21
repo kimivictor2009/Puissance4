@@ -269,7 +269,21 @@ function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fi
 	}
 	if (menu=="fin2")
 	{
-		main.innerHTML +="<h1>Fin du ^4! Victoire j2!</h1>"
+		main.innerHTML +="<h1>Fin du ^4! Victoire j2!</h1>";
+		if (varianteActuelle==1)
+		{
+			let jeton1 = document.querySelectorAll(".confusion tbody tr.jetonJoueur1 td");
+			let jeton2 = document.querySelectorAll(".confusion tbody tr.jetonJoueur2 td");
+
+			for (let i=0; i<jeton1.length; i++)
+			{
+				jeton1[i].style.backgroundColor = "yellow";
+			}
+			for (let i=0; i<jeton2.length; i++)
+			{
+				jeton2[i].style.backgroundColor = "red";
+			}
+		}
 	}
 
 }
