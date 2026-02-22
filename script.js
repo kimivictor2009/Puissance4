@@ -59,10 +59,10 @@ function changerPub() //par victor
 	}
 	else
 	{
-		lien = ""
-	}
+		lien = `https://www.temu.com/`;
 
 	lienPub.href = lien;
+	}
 }
 
 function repeatStr(str, nb) //regroupe la str entrée nb fois, par victor
@@ -125,7 +125,6 @@ function allerClassique() // par victor
 				<h2>
 					Puissance 4 classique
 				</h2>
-				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -151,7 +150,6 @@ function allerVar1() // par victor (copié-collé)
 				<h2>
 					Puissance 4 : Confusion
 				</h2>
-				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrilleConfusion(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -176,7 +174,6 @@ function allerVar2() // par victor (copié-collé)
 				<h2>
 					Puissance 4 : Maxi fun
 				</h2>
-				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -202,7 +199,6 @@ function allerVar3() // par victor (copié-collé)
 				<h2>
 					Puissance 4 : Mini mais fun quand même
 				</h2>
-				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -227,7 +223,6 @@ function allerVar4() // par victor (copié-collé)
 				<h2>
 					Puissance 4 : 3 joueurs mais en fait y'a que 2 joueurs
 				</h2>
-				<table class='plcjetons' style='width:`+ longueur.toString() + `px'><tr>` + repeatStr("<td></td>", nbColonnes) + `</tr></table>
 				<div class="grille">`;
 	ajout += creerGrille(nbColonnes, nbLignes);
 	ajout += `</div>
@@ -251,7 +246,7 @@ function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fi
 	}
 	if (menu=="fin1")
 	{
-		main.innerHTML +="<h1>Fin du ^4! Victoire j1!</h1>"
+		main.innerHTML +="<h1>Fin du jeu ! Victoire du joueur 1 (jaune) !</h1>"
 		if (varianteActuelle==1)
 		{
 			let jeton1 = document.querySelectorAll(".confusion tbody tr.jetonJoueur1 td");
@@ -269,7 +264,7 @@ function jeu(nbLignes, nbColonnes) //par victor et retouché par kimi pour la fi
 	}
 	if (menu=="fin2")
 	{
-		main.innerHTML +="<h1>Fin du ^4! Victoire j2!</h1>";
+		main.innerHTML +="<h1>Fin du jeu ! Victoire du joueur 2 (rouge) !</h1>";
 		if (varianteActuelle==1)
 		{
 			let jeton1 = document.querySelectorAll(".confusion tbody tr.jetonJoueur1 td");
@@ -433,10 +428,10 @@ function detectVictoireDiagonales(nbLignes, nbColonnes, ligne, numeroColonne, jo
 	
 function detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
-	let compteDiagonalHD = 0
-	let y = ligne
-	let x = numeroColonne
-	let diago = true
+	let compteDiagonalHD = 0;
+	let y = ligne;
+	let x = numeroColonne;
+	let diago = true;
 	//console.log(ligne, numeroColonne);
 	//console.log(nbColonnes,nbLignes);
 	while(y<nbLignes && x<nbColonnes && diago==true)
@@ -444,7 +439,7 @@ function detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, j
 		//console.log("Vérification : x =", x, "y =", y);
 		if(plateau[y][x]==joueurActuel)
 		{
-			compteDiagonalHD+=1
+			compteDiagonalHD+=1;
 		}
 		else if(plateau[y][x]!=joueurActuel)
 		{
@@ -459,22 +454,22 @@ function detectVictoireDiagonaleHD(nbLignes, nbColonnes, ligne, numeroColonne, j
 
 function detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
-	let compteDiagonalHG = 0
-	let y = ligne
-	let x = numeroColonne
-	let diago = true
+	let compteDiagonalHG = 0;
+	let y = ligne;
+	let x = numeroColonne;
+	let diago = true;
 	while(y<nbLignes && x>=0 && diago==true)
 	{
 		if(plateau[y][x]==joueurActuel)
 		{
-			compteDiagonalHG+=1
+			compteDiagonalHG+=1;
 		}
 		else if(plateau[y][x]!=joueurActuel)
 		{
 			diago=false;
 		}
-		y+=1
-		x-=1
+		y+=1;
+		x-=1;
 	}
 	console.log("returnHG :",compteDiagonalHG);
 	return compteDiagonalHG;
@@ -482,10 +477,10 @@ function detectVictoireDiagonaleHG(nbLignes, nbColonnes, ligne, numeroColonne, j
 
 function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
-	let compteDiagonalBG = 0
-	let y = ligne
-	let x = numeroColonne
-	let diago = true
+	let compteDiagonalBG = 0;
+	let y = ligne;
+	let x = numeroColonne;
+	let diago = true;
 	while(y>=0 && x>=0 && diago==true)
 	{
 		if(plateau[y][x]==joueurActuel)
@@ -496,8 +491,8 @@ function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, j
 		{
 			diago=false;
 		}
-		y-=1
-		x-=1
+		y-=1;
+		x-=1;
 	}
 	console.log("returnBG :",compteDiagonalBG);
 	return compteDiagonalBG;
@@ -505,24 +500,24 @@ function detectVictoireDiagonaleBG(nbLignes, nbColonnes, ligne, numeroColonne, j
 
 function detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, joueurActuel)//kimi
 {
-	let compteDiagonalBD = 0
-	let y = ligne
-	let x = numeroColonne
-	let diago = true
+	let compteDiagonalBD = 0;
+	let y = ligne;
+	let x = numeroColonne;
+	let diago = true;
 	//console.log(ligne, numeroColonne);
 	//console.log(nbColonnes,nbLignes);
 	while(y>=0 && x<nbColonnes && diago == true)
 	{
 		if(plateau[y][x]==joueurActuel)
 		{
-			compteDiagonalBD+=1
+			compteDiagonalBD+=1;
 		}
 		else if(plateau[y][x]!=joueurActuel)
 		{
 			diago=false;
 		}
-		y-=1
-		x+=1
+		y-=1;
+		x+=1;
 	}
 	console.log("returnBD :",compteDiagonalBD);
 	return compteDiagonalBD;
@@ -530,13 +525,13 @@ function detectVictoireDiagonaleBD(nbLignes, nbColonnes, ligne, numeroColonne, j
 
 function detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel)//kimi
 {
-	let compteHorizontal = 0
+	let compteHorizontal = 0;
 	for(let j = 0; j < nbColonnes; j++)
 	{
 		if(plateau[ligne][j]==joueurActuel)
 		{
-			compteHorizontal+=1
-			console.log("Horizontal :",compteHorizontal)
+			compteHorizontal+=1;
+			console.log("Horizontal :",compteHorizontal);
 			if(compteHorizontal==4)
 				{
 					console.log("WIN joueur "+joueurActuel);
@@ -553,12 +548,12 @@ function detectVictoireHorizontale(nbLignes, nbColonnes, ligne, joueurActuel)//k
 
 function detectVictoireVerticale(nbLignes, nbColonnes, numeroColonne, joueurActuel)//kimi
 {
-	let compteVertical = 0
+	let compteVertical = 0;
 	for(let i = 0; i < nbLignes; i++)
 	{
 		if(plateau[i][numeroColonne]==joueurActuel)
 		{
-			compteVertical+=1
+			compteVertical+=1;
 			console.log("Vertical :",compteVertical)
 			if(compteVertical==4)
 				{
