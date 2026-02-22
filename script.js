@@ -53,16 +53,12 @@ function changerPub() //par victor
 	{
 		lien = "https://github.com/kimivictor2009/Projets_NSI/blob/main/Projet%201.zip";
 	}
-	else if (pub == "nom pub")
-	{
-		lien = "lien";
-	}
 	else
 	{
-		lien = `https://www.temu.com/`;
-
-	lienPub.href = lien;
+		let lienRandom = ["https://www.temu.com/", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"];
+		lien = lienRandom[Math.floor(Math.random() * lienRandom.length)] ; //quand c'est une pub sans lien indiqué, elle renvoie vers un site aléatoire de la liste ci-dessus
 	}
+	lienPub.href = lien;
 }
 
 function repeatStr(str, nb) //regroupe la str entrée nb fois, par victor
