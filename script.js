@@ -55,7 +55,7 @@ function changerPub() //par victor
 	}
 	else
 	{
-		let lienRandom = ["https://www.temu.com/", "https://www.youtube.com/watch?v=dQw4w9WgXcQ"];
+		let lienRandom = ["https://www.temu.com/", "https://www.youtube.com/watch?v=dQw4w9WgXcQ", "https://mon.lyceeconnecte.fr/timeline/timeline", "https://info.fretrad.fr/sites/microsites/micro-nsi-1/puissance-4", "https://www.justwatch.com/fr"];
 		lien = lienRandom[Math.floor(Math.random() * lienRandom.length)] ; //quand c'est une pub sans lien indiqué, elle renvoie vers un site aléatoire de la liste ci-dessus
 	}
 	lienPub.href = lien;

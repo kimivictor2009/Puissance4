@@ -10,9 +10,9 @@ body {
 
 .heading
 {
-    background-color: #e1aafe;
+    background-color: #462358;
     padding-right: 100%;
-    outline: 10px solid #e1aafe;
+    outline: 10px solid #462358;
     display: flex;
     align-items: center;
 }
@@ -24,7 +24,7 @@ body {
 
 .logo
 {
-    align-content: middle;
+    align-content: center;
     height: 100px;
     width: 100px;
 }
@@ -32,11 +32,10 @@ body {
 .panel
 {
     width: 200px;
-    background-color: #e1aafe;
+    background-color: #462358;
     margin-right: 20px;
-	outline : 8px solid #e1aafe;
-	height: 100%;
-	
+	outline : 8px solid #462358;
+	height: 250px;
 }
 
 .main
@@ -52,6 +51,7 @@ body {
 	width: 100%;
 	height: 20%;
 	font-family: 'Magneto';
+    font-size: 20px;
 	border-radius: 20px;
 	border-color: #aac7fe;
 }
