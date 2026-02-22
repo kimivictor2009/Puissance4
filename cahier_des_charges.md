@@ -24,12 +24,9 @@ Les modules sont associés à des lettres pour l'organisation.
 - (N) Variante 3 : mini mais fun quand même
 - (O) Variante 4 : 3 joueurs
 
-### Organisation et ordre des modules
-
 
 ## Toutes les tâches
 ### Fait
-### À faire
 A
 B
 C
@@ -45,6 +42,8 @@ L
 M
 N
 O
+### À faire
+Plus rien :)
 
 ## Historique des modifications
 
