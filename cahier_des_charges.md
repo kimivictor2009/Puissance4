@@ -45,6 +45,3 @@ O
 ### À faire
 Plus rien :)
 
-## Historique des modifications
-
-rien pour l'instant
