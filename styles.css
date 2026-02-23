@@ -29,7 +29,7 @@ body {
     background-color: #57288a;
     margin-right: 20px;
 	outline : 8px solid #57288a;
-	height: 100%;
+	height: 180px;
 	
 }
 
@@ -44,13 +44,13 @@ body {
 {
 	background-color: #8543D4;
 	width: 100%;
-	height: 20%;
+	height: 30px;
 	font-family: 'Magneto';
 	border-radius: 20px;
 	border: 2px solid #371559;
 	color: #FCDEFD;
 	text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
-	box-shadow:  0 6px 0 #371559;
+	box-shadow:  0 4px 0 #371559;
 	transition: all 0.01s;
 	margin-bottom: 6px;
 }
